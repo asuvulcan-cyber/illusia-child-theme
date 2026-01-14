@@ -1,0 +1,287 @@
+/**************************************
+ * 1. ESTRUTURA GERAL (MOBILE FIRST)
+ **************************************/
+
+.ranking-stories *,
+.ranking-filters * {
+  box-sizing: border-box;
+}
+
+.ranking-stories {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.story-item {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  background: var(--bg-600);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  height: 125px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+/**************************************
+ * 2. THUMBNAIL E RIBBON
+ **************************************/
+
+.story-thumbnail {
+  position: relative;
+  flex-shrink: 0;
+  width: 90px;
+  height: 100%;
+}
+
+.story-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ranking-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--bg-600);
+  color: var(--primary-500);
+  padding: 3px 6px;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 0 0 0 6px;
+  z-index: 10;
+  line-height: 1;
+  box-shadow: -1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/**************************************
+ * 3. CONTEÚDO E TEXTOS
+ **************************************/
+
+.story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  padding: 8px 10px 8px 0;
+  min-width: 0;
+}
+
+.story-item h2 {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.story-item h2 a {
+  text-decoration: none;
+  color: var(--primary-400);
+}
+
+.story-item .story-excerpt {
+  font-size: 0.75rem;
+  color: var(--fg-500);
+  margin: 2px 0 6px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/**************************************
+ * 4. METADADOS E ÍCONES
+ **************************************/
+
+.story-item .views-comments {
+  font-size: 0.7rem;
+  color: var(--fg-400);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0,0,0,0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.meta-item-ranking {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.meta-item-ranking i {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+/**************************************
+ * 5. FILTROS (GRID LAYOUT)
+ **************************************/
+
+.ranking-filters {
+  display: grid;
+  /* Mobile: 2 colunas de largura igual */
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px;
+  background-color: var(--bg-600);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  align-items: end; /* Alinha inputs e botão pela base */
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group.hidden {
+  display: none;
+}
+
+/* O Filtro de mês, quando aparece, ocupa a linha inteira no mobile */
+#specific-month-filter:not(.hidden) {
+  grid-column: 1 / -1; 
+}
+
+/* Botão sempre ocupa a linha inteira no mobile */
+.group-btn {
+  grid-column: 1 / -1;
+  margin-top: 5px;
+}
+
+.ranking-filters label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--fg-400);
+  letter-spacing: 0.5px;
+}
+
+.ranking-filters select {
+  width: 100%;
+  background-color: var(--bg-500);
+  color: var(--fg-100);
+  border: 1px solid var(--bg-400);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.85rem;
+  height: 40px;
+  cursor: pointer;
+}
+
+.ranking-filters__button {
+  width: 100%;
+  height: 40px;
+  background-color: var(--primary-600, #4a90e2);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ranking-filters__button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/**************************************
+ * 6. TABLET E DESKTOP
+ **************************************/
+
+/* Tablet (>= 600px) */
+@media (min-width: 600px) {
+  .story-item {
+    height: 140px;
+    gap: 15px;
+  }
+  .story-thumbnail {
+    width: 110px;
+  }
+  .story-item h2 {
+    font-size: 1.1rem;
+  }
+  
+  /* Ajuste do Grid no Tablet: Botão ao lado dos inputs se houver espaço */
+  .ranking-filters {
+    /* Tenta colocar tudo numa linha se couber, ou quebra auto */
+    display: flex;
+    flex-wrap: wrap; 
+  }
+  .filter-group {
+    flex: 1; /* Todos crescem igualmente */
+    min-width: 150px;
+  }
+  .group-btn {
+    grid-column: auto;
+    flex: 0 0 auto; /* Botão ocupa tamanho necessário */
+    min-width: 120px;
+  }
+}
+
+/* Desktop (>= 900px) */
+@media (min-width: 900px) {
+  .ranking-stories {
+    gap: 20px;
+  }
+  .story-item {
+    height: 160px;
+  }
+  .story-thumbnail {
+    width: 128px;
+  }
+  .ranking-ribbon {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  .story-item h2 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+  .story-item .story-excerpt {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Filtros em linha única perfeita */
+  .ranking-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+  }
+  .filter-group {
+    flex: 1; 
+  }
+  .group-btn {
+    flex: 0 0 150px; /* Largura fixa do botão */
+    margin-top: 0;
+  }
+}
+
+/* Modo Claro */
+:root[data-mode=light] .story-item { background: var(--bg-300); }
+:root[data-mode=light] .story-item h2 a { color: var(--bg-900); }
+:root[data-mode=light] .ranking-ribbon { color: var(--bg-400); background: var(--bg-800); }
+:root[data-mode=light] .story-item .views-comments { color: var(--fg-700); background: rgba(255,255,255,0.5); }
+:root[data-mode=light] .ranking-filters { background-color: var(--bg-200); }
+:root[data-mode=light] .ranking-filters select { background-color: #fff; border-color: var(--bg-400); color: var(--bg-900); }

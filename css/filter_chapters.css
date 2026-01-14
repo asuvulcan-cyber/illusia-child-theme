@@ -1,0 +1,186 @@
+.comment-rules-notifications {
+        background: var(--bg-600);
+        padding: 15px;
+        border: 2px dashed var(--bg-400);
+        margin: 3rem 0 0 0;
+        border-radius: 7px;
+        position: relative;
+    }
+    :root[data-mode=light] .comment-rules-notifications {
+        background: var(--bg-200);
+    }
+
+    .comment-rules h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: var(--fg-600);
+    }
+    .comment-rules ul {
+        margin-left: 20px;
+    }
+    .comment-rules li {
+        margin-bottom: 8px;
+        color: var(--fg-600);
+    }
+    .email-notifications {
+        margin-top: 15px;
+        font-size: 14px;
+        color: var(--fg-600);
+    }
+    .email-notifications i {
+        margin: 5px;
+        font-size: 14px;
+    }
+    .sininho {
+        color: var(--primary-400);
+        font-weight: 600;
+    }
+    .regras-comentarios {
+        color: var(--fg-600);
+        font-size: 14px;
+    }
+    .comment-rules-notifications::before {
+        content: "\f086";
+        font-family: "Font Awesome 5 Free";
+        font-size: 7rem;
+        font-weight: 600;
+        color: var(--infobox-background);
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        pointer-events: none;
+    }
+
+    /* Responsividade para PC */
+    @media (min-width: 1024px) {
+        .comment-rules h3 {
+            font-size: clamp(14px, 1vw + 12px, 16px); /* Variável entre 14px e 16px para PCs */
+        }
+        .email-notifications {
+            font-size: clamp(14px, 1vw + 12px, 16px); /* Variável entre 14px e 16px para PCs */
+        }
+        .regras-comentarios {
+            font-size: clamp(14px, 1vw + 12px, 16px); /* Variável entre 14px e 16px para PCs */
+        }
+    }
+
+    /* Responsividade para tablets */
+    @media (max-width: 1023px) and (min-width: 768px) {
+        .comment-rules h3 {
+            font-size: clamp(12px, 2vw + 8px, 14px); /* Variável entre 12px e 14px para tablets */
+        }
+        .email-notifications {
+            font-size: clamp(12px, 2vw + 8px, 14px); /* Variável entre 12px e 14px para tablets */
+        }
+        .regras-comentarios {
+            font-size: clamp(12px, 2vw + 8px, 14px); /* Variável entre 12px e 14px para tablets */
+        }
+    }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 767px) {
+        .comment-rules h3 {
+            font-size: clamp(10px, 3vw + 6px, 12px); /* Variável entre 10px e 12px para dispositivos móveis */
+        }
+        .email-notifications {
+            font-size: clamp(10px, 3vw + 6px, 12px); /* Variável entre 10px e 12px para dispositivos móveis */
+        }
+        .regras-comentarios {
+            font-size: clamp(10px, 3vw + 6px, 12px); /* Variável entre 10px e 12px para dispositivos móveis */
+        }
+    }
+
+
+/* Estilo geral do formulário */
+.post-password-form.custom-form {
+    max-width: max-content;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px outset color-mix(in srgb, var(--primary-400) 85%, var(--bg-600) 15%);
+    border-radius: 8px;
+    background-color: var(--post-password-background);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+}
+
+.post-password-form .form-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.post-password-form .form-header h3 {
+    margin: 5px 0;
+    color: color-mix(in srgb, var(--primary-400) 85%, var(--bg-600) 15%);
+    text-shadow: 1px 1px 2px var(--bg-600), 1px 2px 1px var(--bg-300);
+}
+
+.post-password-form .form-header p {
+    font-size: smaller;
+    font-style: italic;
+	color: var(--fg-900);
+}
+
+.post-password-form .password-wrapper {
+    margin-bottom: 15px;
+	background: none;
+}
+
+.post-password-form .password-wrapper input {
+    width: 100%;
+    padding: 10px;
+    border: 1px outset color-mix(in srgb, var(--primary-400) 85%, var(--bg-600) 15%);
+    border-radius: 3px;
+    box-sizing: border-box;
+	background: var(--post-password-cutout);
+}
+
+.post-password-form .password-submit {
+    text-align: center;
+}
+
+.post-password-form .password-submit .btn-submit {
+    padding: 10px 20px;
+    font-size: inherit;
+    color: var(--fg-600);
+    background-color: var(--bg-400);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.post-password-form .password-submit .btn-submit:hover {
+    background-color: var(--bg-300);
+}
+
+/* Estilo do timer */
+.countdown-message {
+    text-align: center;
+    font-size: medium;   
+}
+
+.countdown-message p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Destaque para o tempo restante */
+.countdown-message strong {
+    font-weight: bold;
+    color: var(--red-400);
+}
+
+/* Mensagem de senha expirada */
+.password-expired-message {
+    color: var(--red-600);
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.chapter__forced-excerpt {
+    background: linear-gradient(1deg, var(--site-bg-color), var(--fg-tinted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #00000000;
+}
+

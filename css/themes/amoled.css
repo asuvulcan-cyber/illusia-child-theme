@@ -1,0 +1,156 @@
+
+
+
+:root[data-theme='amoled'] {
+    --primary-hue: 210;
+    --primary-saturation: 100%;
+    --primary-lightness: 50%;
+
+    --secondary-hue: 210;
+    --secondary-saturation: 100%;
+    --secondary-lightness: 50%;
+
+    --accent-hue: 210;
+    --accent-saturation: 100%;
+    --accent-lightness: 50%;
+
+    --fg-hue: 0;
+    --fg-saturation: 0%;
+    --fg-lightness: 100%;
+
+    --bg-hue: 0;
+    --bg-saturation: 0%;
+    --bg-lightness: 0%;
+
+    --base-hue: 0;
+    --base-saturation: 0%;
+    --base-lightness: 0%;
+}
+
+
+
+
+:root[data-theme=\'amoled\'] {
+    /* Foreground colors */
+    --fg-100: hsl(var(--fg-hue), var(--fg-saturation), 90%);
+    --fg-200: hsl(var(--fg-hue), var(--fg-saturation), 80%);
+    --fg-300: hsl(var(--fg-hue), var(--fg-saturation), 70%);
+    --fg-400: hsl(var(--fg-hue), var(--fg-saturation), 60%);
+    --fg-500: hsl(var(--fg-hue), var(--fg-saturation), 100%); /* Pure white for main text */
+    --fg-600: hsl(var(--fg-hue), var(--fg-saturation), 40%);
+    --fg-700: hsl(var(--fg-hue), var(--fg-saturation), 30%);
+    --fg-800: hsl(var(--fg-hue), var(--fg-saturation), 20%);
+    --fg-900: hsl(var(--fg-hue), var(--fg-saturation), 10%);
+
+    /* Background colors */
+    --bg-100: hsl(var(--bg-hue), var(--bg-saturation), 5%);
+    --bg-200: hsl(var(--bg-hue), var(--bg-saturation), 10%);
+    --bg-300: hsl(var(--bg-hue), var(--bg-saturation), 15%);
+    --bg-400: hsl(var(--bg-hue), var(--bg-saturation), 20%);
+    --bg-500: hsl(var(--bg-hue), var(--bg-saturation), 0%); /* Pure black for main background */
+    --bg-600: hsl(var(--bg-hue), var(--bg-saturation), 30%);
+    --bg-700: hsl(var(--bg-hue), var(--bg-saturation), 40%);
+    --bg-800: hsl(var(--bg-hue), var(--bg-saturation), 50%);
+    --bg-900: hsl(var(--bg-hue), var(--bg-saturation), 60%);
+
+    /* Primary colors */
+    --primary-100: hsl(var(--primary-hue), var(--primary-saturation), 90%);
+    --primary-200: hsl(var(--primary-hue), var(--primary-saturation), 80%);
+    --primary-300: hsl(var(--primary-hue), var(--primary-saturation), 70%);
+    --primary-400: hsl(var(--primary-hue), var(--primary-saturation), 60%);
+    --primary-500: hsl(var(--primary-hue), var(--primary-saturation), 50%);
+    --primary-600: hsl(var(--primary-hue), var(--primary-saturation), 40%);
+    --primary-700: hsl(var(--primary-hue), var(--primary-saturation), 30%);
+    --primary-800: hsl(var(--primary-hue), var(--primary-saturation), 20%);
+    --primary-900: hsl(var(--primary-hue), var(--primary-saturation), 10%);
+
+    /* Secondary colors */
+    --secondary-100: hsl(var(--secondary-hue), var(--secondary-saturation), 90%);
+    --secondary-200: hsl(var(--secondary-hue), var(--secondary-saturation), 80%);
+    --secondary-300: hsl(var(--secondary-hue), var(--secondary-saturation), 70%);
+    --secondary-400: hsl(var(--secondary-hue), var(--secondary-saturation), 60%);
+    --secondary-500: hsl(var(--secondary-hue), var(--secondary-saturation), 50%);
+    --secondary-600: hsl(var(--secondary-hue), var(--secondary-saturation), 40%);
+    --secondary-700: hsl(var(--secondary-hue), var(--secondary-saturation), 30%);
+    --secondary-800: hsl(var(--secondary-hue), var(--secondary-saturation), 20%);
+    --secondary-900: hsl(var(--secondary-hue), var(--secondary-saturation), 10%);
+
+    /* Accent colors */
+    --accent-100: hsl(var(--accent-hue), var(--accent-saturation), 90%);
+    --accent-200: hsl(var(--accent-hue), var(--accent-saturation), 80%);
+    --accent-300: hsl(var(--accent-hue), var(--accent-saturation), 70%);
+    --accent-400: hsl(var(--accent-hue), var(--accent-saturation), 60%);
+    --accent-500: hsl(var(--accent-hue), var(--accent-saturation), 50%);
+    --accent-600: hsl(var(--accent-hue), var(--accent-saturation), 40%);
+    --accent-700: hsl(var(--accent-hue), var(--accent-saturation), 30%);
+    --accent-800: hsl(var(--accent-hue), var(--accent-saturation), 20%);
+    --accent-900: hsl(var(--accent-hue), var(--accent-saturation), 10%);
+
+    /* Base colors */
+    --base-100: hsl(var(--base-hue), var(--base-saturation), 5%);
+    --base-200: hsl(var(--base-hue), var(--base-saturation), 10%);
+    --base-300: hsl(var(--base-hue), var(--base-saturation), 15%);
+    --base-400: hsl(var(--base-hue), var(--base-saturation), 20%);
+    --base-500: hsl(var(--base-hue), var(--base-saturation), 0%); /* Pure black for base */
+    --base-600: hsl(var(--base-hue), var(--base-saturation), 30%);
+    --base-700: hsl(var(--base-hue), var(--base-saturation), 40%);
+    --base-800: hsl(var(--base-hue), var(--base-saturation), 50%);
+    --base-900: hsl(var(--base-hue), var(--base-saturation), 60%);
+
+    /* Specific element colors (adjust as needed for AMOLED) */
+    --site-background: var(--bg-500);
+    --site-text-color: var(--fg-500);
+    --link-color: var(--primary-500);
+    --link-hover-color: var(--primary-300);
+    --border-color: var(--bg-300);
+    --input-background: var(--bg-200);
+    --input-text-color: var(--fg-500);
+    --button-background: var(--primary-500);
+    --button-text-color: var(--fg-500);
+    --button-hover-background: var(--primary-600);
+    --button-hover-text-color: var(--fg-500);
+}
+
+/* Ensure true black for body and main content areas */
+body[data-theme=\'amoled\'] {
+    background-color: #000000 !important;
+    color: var(--site-text-color) !important;
+}
+
+/* Adjust specific elements for AMOLED */
+.site-header, .site-footer, .site-main, .site-content, .widget, .comment-body, .navigation-main, .menu-main {
+    background-color: #000000 !important;
+    color: var(--site-text-color) !important;
+}
+
+/* Ensure all text is readable */
+h1, h2, h3, h4, h5, h6, p, li, a, span, div {
+    color: var(--site-text-color) !important;
+}
+
+/* Adjust borders and separators */
+hr {
+    border-color: var(--border-color) !important;
+}
+
+/* Form elements */
+input[type=\'text\'], input[type=\'email\'], input[type=\'password\'], textarea, select {
+    background-color: var(--input-background) !important;
+    color: var(--input-text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Buttons */
+button, .button, input[type=\'submit\'] {
+    background-color: var(--button-background) !important;
+    color: var(--button-text-color) !important;
+    border-color: var(--button-background) !important;
+}
+
+button:hover, .button:hover, input[type=\'submit\']:hover {
+    background-color: var(--button-hover-background) !important;
+    color: var(--button-hover-text-color) !important;
+    border-color: var(--button-hover-background) !important;
+}
+
+

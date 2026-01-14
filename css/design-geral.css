@@ -1,0 +1,486 @@
+.vote-table-container {
+    margin: 1rem auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+
+.vote-table, .vote-types-table, .vote-details-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    background-color: var(--bg-500);
+    border: 1px solid var(--bg-300);
+    border-radius: 3px;
+}
+
+.vote-table th, .vote-types-table th, .vote-details-table th {
+    background-color: var(--bg-400);
+    color: var(--fg-900);
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Largura fixa para as colunas de "Nome de Usuário / ID" e "Em História" */
+.vote-table td {
+    padding: 10px;
+    text-align: left;
+    color: var(--fg-900);
+	font-size: medium;
+}
+
+/* Ajustar largura da primeira coluna */
+.user-votes-table td:nth-child(1) {
+    width: 50%; /* Ajuste a largura conforme necessário */
+}
+
+/* Ajustar largura da segunda coluna ("Em História") */
+.user-votes-table td:nth-child(2) {
+    width: 50%;
+    text-align: start;
+}
+
+/* Adicionar espaçamento entre o conteúdo das colunas */
+.user-votes-table td span {
+    display: inline-block;
+    margin-bottom: 5px; /* Para dar espaçamento entre as informações */
+	font-size: medium;
+}
+
+/* Adicionar cor das estrelas para a tabela de votos */
+.vote-types-table td {
+    text-align: start;
+	font-size: medium;
+}
+
+/* Ajustar a largura da coluna "Votos" e "Quantidade" */
+.vote-types-table td:nth-child(1),
+.vote-types-table td:nth-child(2) {
+    width: 50%; /* Ajuste a largura conforme necessário */
+}
+
+/* Ajuste na tabela de detalhes de votos */
+.vote-details-table td:nth-child(1),
+.vote-details-table td:nth-child(2) {
+    width: 50%; /* Ajuste a largura conforme necessário */
+}
+
+/* Exibe as informações de Nome, Função e ID em colunas separadas */
+.user-votes-table td div.fictioneer-comment__badge {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Ajustando a largura da coluna Total de Votos */
+.user-votes-table td:nth-child(2) {
+    width: 50%;
+    text-align: start;
+}
+
+/* Adicionando as cores das estrelas */
+.vote-types-table .star-green {
+    color: #28a745; /* Estrela verde */
+}
+
+.vote-types-table .star-yellow {
+    color: #ffc107; /* Estrela amarela */
+}
+
+.vote-types-table .star-orange {
+    color: #fd7e14; /* Estrela laranja */
+}
+
+.vote-types-table .star-red {
+    color: #dc3545; /* Estrela vermelha */
+}
+
+
+/* ==============================
+   Estilos para a Galeria de Personagens
+   ============================== */
+/* ==========================
+   Unique People Gallery
+   ========================== */
+/* ==========================
+   Unique People Gallery
+   ========================== */
+
+
+.unique-people-gallery {
+    /* se preferir remover inline style, pode usar:
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    */
+    margin: 0 auto;
+    padding: 0;
+    justify-items: center;  /* centraliza itens */
+    align-items: start;
+}
+
+.unique-people-item {
+    width: 100%;
+    max-width: fit-content;       /* limite opcional */
+    background: var(--bg-600);
+    border: 0.1px outset var(--primary-600);
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.unique-people-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.unique-people-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Caso seja placeholder, deixa opaco */
+.unique-people-placeholder {
+    opacity: 0.05;
+}
+
+.unique-people-name {
+    margin: 0;
+    padding: .75rem;
+    font-weight: 700;
+    font-size: 0.7rem !important;
+    background: var(--bg-300);
+    color: var(--fg-500);
+    border-top: 1px inset var(--primary-400);
+}
+
+.unique-people-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 768px) {
+    .unique-people-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .unique-people-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important;
+    }
+}
+
+.i-homepage-title {
+  position: relative;
+  display: inline-flex; /* Usar inline-flex para que o contêiner acompanhe o tamanho do conteúdo */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.2% 5% 1.2% 2%; /* Mantém o espaçamento */
+}
+
+.i-homepage-title::before {
+  content: '';
+  position: absolute;
+  top: 6px; /* Desloca ligeiramente para baixo */
+  left: 4px; /* Desloca ligeiramente para a direita */
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-400); 
+  clip-path: polygon(80% 0, 10% 0%, 0% 100%, 50% 100%);
+  border-radius: 130px;
+  z-index: 1;
+}
+
+.i-homepage-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--bg-500) 0%, var(--bg-400) 100%);
+   clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    border-radius: 5px;
+  z-index: 2;
+}
+
+.i-homepage-title h4, .i-homepage-title h4 a {
+  position: relative;
+  z-index: 3;
+  font-size: clamp(0.8rem, 2vw, 1rem); /* Ajuste dinâmico do tamanho do texto */
+  color: var(--fg-600);
+  font-family: 'Rubik', sans-serif;
+  white-space: nowrap; /* Evita quebras de linha */
+  text-overflow: ellipsis; /* Adiciona reticências caso o texto seja muito longo */
+  overflow: hidden; /* Garante que o texto não ultrapasse os limites */
+}
+
+.homepage-item {
+margin-top: 2rem;
+}
+
+.discord-slide {
+    display: grid;
+    place-content: center;
+    padding: 8px;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .discord-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .discord-slide a {
+    color: #fff; /* Cor do link */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+
+
+.search-form__bar input {
+    height: 3rem;
+}
+.search-form__advanced-toggle {
+    height: 3rem !important;
+    background: var(--bg-400);
+    padding: 1rem;
+}
+.search-form__advanced-toggle:hover {
+    background: var(--bg-300);
+}
+.fa-sliders {
+    font-size: 16px;
+}
+
+
+.search-form__submit:is(button) {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+input:is([type=search]) {
+    --input-border-radius: 1rem;
+    border: var(--input-border);
+    --input-border: 1px solid var(--bg-300);
+}
+.search-form__select-title {
+    --layout-border-radius-small: 1rem;
+    border: var(--input-border);
+    --input-border: 1px solid var(--bg-300);
+}
+
+      .slide-home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            --this-outset: 0px;
+        }
+
+
+.showcase:not(:first-child) {
+    margin-top: -2.5rem;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-400);
+    font-family: Rubik, sans-serif;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 10 / 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+/* Estilo do conteúdo central */
+.content-container {
+    flex: 1;
+    text-align: center;
+    padding: 0 0.5rem; /* Espaço interno para evitar contato com triângulos */
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Garante que nada saia do contêiner */
+}
+
+/* Título */
+.content-container h3 {
+    font-size: clamp(12px, 2vw, 20px); /* Responsivo: ajusta entre 12px e 20px */
+    font-weight: bold;
+    margin: 0;
+    color: var(--fg-600);
+    text-overflow: ellipsis; /* Se o texto for muito longo, adiciona reticências */
+    overflow: hidden;
+}
+
+.content-container h3 span {
+    color: var(--primary-400);
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+    .banner {
+        padding: 0 0.5rem;
+    }
+
+    .content-container h3 {
+        font-size: clamp(12px, 2vw, 18px); /* Fonte ajustável */
+    }
+
+}
+
+@media (max-width: 600px) {
+    .content-container h3 {
+        font-size: clamp(10px, 2vw, 16px); /* Fonte ajustável */
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .content-container h3 {
+        font-size: clamp(8px, 1.5vw, 14px); /* Fonte ajustável */
+    }
+
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+           .illusia-tier-message {
+                --primary-color: %1$s;
+                --secondary-color: %2$s;
+                --border-radius: 16px;
+                --spacing: 1.75rem;
+
+                max-width: 500px;
+                margin: 2.5rem auto;
+                background: var(--background);
+                border-radius: var(--border-radius);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                position: relative;
+                overflow: hidden;
+                background: linear-gradient(135deg, var(--bg-800) 0%, #d6c17b26 50%, var(--bg-800) 100%);
+            }
+
+            .tier-message-content {
+                padding: var(--spacing);
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .tier-badge {
+                background: var(--bg-800);
+    			color: var(--fg-100);
+                padding: 0.6rem 1.8rem;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.2px;
+                display: inline-block;
+                margin-bottom: 1.25rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .tier-title {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin: 0 0 1rem;
+                line-height: 1.2;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .tier-notice {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin: 0 0 var(--spacing);
+                padding: 0 1rem;
+            }
+
+            .tier-notice strong {
+                color: var(--primary-color);
+                font-weight: 700;
+            }
+
+            .patreon-button {
+                display: inline-flex;
+				gap: .8rem;
+				background: var(--mobile-menu-overlay);
+				padding: .9rem 2.5rem;
+				border-radius: 10px;
+				text-decoration: none !important;
+				font-size: 1rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .5px;
+				transition: all .3s ease !important;
+				border: none;
+				cursor: pointer;
+				align-content: center;
+				justify-content: center;
+				flex-direction: row;
+				align-items: flex-end;
+            }
+
+            .patreon-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                filter: brightness(1.1);
+            }
+
+            .patreon-icon {
+                width: 24px;
+                height: 24px;
+                fill: currentColor;
+            }
+
+
+            /* Responsividade */
+            @media (max-width: 480px) {
+                .illusia-tier-message {
+                    max-width: 90%%;
+                    margin: 1.5rem auto;
+                    border-radius: 12px;
+                }
+
+                .tier-message-content {
+                    padding: 1.5rem;
+                }
+
+                .tier-title {
+                    font-size: 1.6rem;
+                }
+
+                .tier-notice {
+                    font-size: 1rem;
+                    padding: 0 0.5rem;
+                }
+
+                .patreon-button {
+                    width: 100%%;
+                    justify-content: center;
+                    padding: 0.8rem 1.5rem;
+                }
+            }

@@ -1,0 +1,14 @@
+  .spoiler-title {
+            filter: blur(4px);
+            transition: filter 0.3s ease;
+        }
+        .spoiler-title:hover {
+            filter: blur(0);
+        }
+        .spoiler-cover {
+            filter: blur(6px);
+            transition: filter 0.3s ease;
+        }
+        .spoiler-cover:hover {
+            filter: blur(0);
+        }

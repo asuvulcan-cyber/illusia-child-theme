@@ -1,0 +1,96 @@
+/* Oculta a nuvem de taxonomias do tema pai */
+.archive__tax-cloud {
+    display: none !important;
+}
+
+/* Estilização do blockquote para manter o layout sem limpar o float */
+.wp-block-quote {
+    padding-left: 1rem;
+    margin-bottom: 2.5rem;
+    clear: none;
+}
+
+/* Container principal da infobox com layout flex e sem quebra */
+.character-infobox-wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* evita quebra de linha */
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden; /* permite scroll horizontal se necessário */
+}
+
+/* Box de perfil à esquerda com largura flexível e limites definidos */
+.character-profile-box {
+    float: right;
+    width: 270px;
+    background: var(--bg-400);
+    border: 0.5px dashed var(--bg-300);
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-right: clamp(0.5rem, 50%, 1rem);
+    flex: 0 0 clamp(180px, 25%, 280px); /* controla a largura mínima e máxima */
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+/* Adiciona um indicador visual aos links dentro do box */
+.character-profile-box a::after {
+    content: "⤶";
+    font-size: 0.8em;
+    color: var(--inline-link-color);
+    padding-left: 0.15rem;
+}
+
+/* Estilos para itens internos do box */
+.char-box-item {
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--bg-300);
+}
+.char-box-item:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* Imagens no box */
+.box-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+/* Conteúdo principal à direita ocupando o espaço restante */
+.character-content {
+    flex: 1 1 auto;
+    min-width: 0; /* permite o encolhimento em telas estreitas */
+}
+
+/* Blocos para Aparência, Biografia e Galeria */
+.char-appearance-block,
+.char-bio-block,
+.char-gallery-block {
+    margin-bottom: 2rem;
+}
+
+/* Grid para a galeria de fotos */
+.character-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.character-gallery-grid .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Ajustes responsivos para telas pequenas */
+@media (max-width: 400px) {
+    .character-profile-box {
+        flex: 0 0 clamp(160px, 25%, 220px);
+    }
+}

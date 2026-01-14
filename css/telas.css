@@ -1,0 +1,1068 @@
+/* styles.css */
+
+/* MODO CLARO */
+:root[data-mode=light][data-theme=default] .fundo-base {background: var(--bg-200);}
+:root[data-mode=light][data-theme=default] .fundo-base::after { filter: drop-shadow(5px 5px 1px var(--bg-500));}
+:root[data-mode=light][data-theme=default] .tela-sangue {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-sangue.webp) #180606;}
+:root[data-mode=light][data-theme=default] .tela-neko::after, :root[data-mode=light][data-theme=default] .tela-neko2::after, :root[data-mode=light][data-theme=default] .tela-arkus::after, :root[data-mode=light][data-theme=default] .tela-arkus2::after {filter: drop-shadow(5px 5px 1px var(--bg-400));}
+:root[data-mode=light][data-theme=default] .tela-arkus, :root[data-mode=light][data-theme=default] .tela-arkus2 {background: black;}
+:root[data-mode=light][data-theme=default] .preta-text { color: var(--bg-200);}
+:root[data-mode=light][data-theme=default] .neutra-text { color: var(--fg-600);}
+:root[data-mode=light][data-theme=default] .tela-preta::after {background: var(--bg-800);}
+:root[data-mode=light][data-theme=default] .tela-base.tela-preta {--border-width: 2px;  background: var(--bg-950);}
+:root[data-mode=light][data-theme=default] .tela-base.tela-neutra {--border-width: 2px; background-color: rgba(0, 0, 0, 0.08);}
+:root[data-mode=light][data-theme=default] .tela-neutra::after {background: rgba(0, 0, 0, 0.08);}
+:root[data-mode=light][data-theme=default] .tela-base {--border-width: 2px;  background: var(--bg-200);}
+:root[data-mode=light][data-theme=default] .tela-base::after { filter: drop-shadow(4px 4px 1px var(--bg-400));}
+:root[data-mode=light][data-theme=default] .quadro { border: 5px solid #b7983c;}
+:root[data-mode=light][data-theme=default] .tela-roxa {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/halo.webp); background-size: cover;}
+:root[data-mode=light][data-theme=default] .roxa-text {color: var(--bg-200);}
+:root[data-mode=light][data-theme=default] ._8b-text {color: var(--fg-50);}
+:root[data-mode=light][data-theme=default] .tela-prata {background: linear-gradient(135deg, #e5e5e5, #b0b0b0, #d9d9d9);}
+:root[data-mode=light][data-theme=default] .sistema-over {background: radial-gradient(circle, rgba(10, 90, 143, 0.4) 0%, rgba(25, 75, 118, 0.3) 51%, rgba(25, 75, 118, 0.1) 92%);}
+:root[data-mode=light][data-theme=default] .sistema-over2 {background: radial-gradient(circle, rgba(255, 93, 93, 0.5) 0%, rgba(255, 99, 71, 0.3) 51%, rgb(255 255 255 / 9%) 92%);}
+:root[data-mode=light][data-theme=default] .display-4 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-5 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-6 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-7 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-8 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-9 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-10 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-11 {background: #20525b;}
+:root[data-mode=light][data-theme=default] .display-red {background: #000000e8; border: 3px solid #b73535;}
+:root[data-mode=light][data-theme=default] .display-text {color: var(--card-frame-border-color)}
+:root[data-mode=light][data-theme=default] {--hud-overlay-icon: #6a6a6a26;}
+:root[data-mode=light][data-theme=default] .preta-text kbd {--kbd-background:rgb(0 0 0 / 9%);}
+
+:root {
+    /* Cores do HUD */
+    --hud-bg: var(--bg-400);
+    --hud-border-bg: var(--fg-tinted);
+    --hud-content-bg: var(--fg-tinted);
+    --hud-text: var(--fg-tinted);
+    --hud-overlay-icon: #ffffff13;
+
+    /* Fontes para HUDs */
+    --hud-font-fantasy: 'Cinzel', serif;
+    --hud-font-gotica: 'Pirata One', cursive;
+    --hud-font-decorativa: 'Bilbo Swash Caps', cursive;
+    --hud-font-digital: 'Chakra Petch', sans-serif;
+    --hud-font-retro: 'Press Start 2P', monospace;
+    --hud-font-futurista: 'Audiowide', sans-serif;
+    --hud-font-limpa: 'Rubik', sans-serif;
+
+    /* Fonte base usada neste HUD específico */
+    --hud-font: var(--hud-font-fantasy);
+}
+
+.hud-caixa {
+    position: relative;
+    width: fit-content;
+    min-height: fit-content;
+    margin: auto;
+    mask: radial-gradient(19px at 19px 19px, #0000 98%, #000) -19px -19px;
+    background: var(--hud-bg);
+}
+
+.hud-caixa::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hud-border-bg);
+    margin: 1px;
+    mask:
+        radial-gradient(21px at 21px 21px, #0000 calc(98% - 3px), #000 calc(100% - 3px) 98%, #0000) -21px -21px,
+        linear-gradient(90deg, #000 6px, #0000 0) -3px 50% / 100% calc(100% - 38px + 3px) repeat-x,
+        linear-gradient(#000 6px, #0000 0) 50% -3px / calc(100% - 38px + 3px) 100% repeat-y;
+   opacity: .3;
+}
+
+.hud-conteudo {
+    position: relative;
+    padding: 1.5rem 1.5rem 2.5rem;
+    color: var(--hud-text);
+    font-family: var(--hud-font);
+    text-align: center;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="28" height="49" viewBox="0 0 28 49"%3E%3Cg fill-rule="evenodd"%3E%3Cg id="hexagons" fill="%239C92AC" fill-opacity="0.05" fill-rule="nonzero"%3E%3Cpath d="M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    background-size: 14px 24px;
+    background-repeat: repeat;
+}
+
+.hud-conteudo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hud-content-bg);
+    margin: 7px;
+    mask:
+        radial-gradient(19px at 19px 19px, #0000 calc(98% - 1px), #000 calc(100% - 1px) 98%, #0000) -19px -19px,
+        linear-gradient(90deg, #000 2px, #0000 0) -1px 50% / 100% calc(100% - 38px + 1px) repeat-x,
+        linear-gradient(#000 2px, #0000 0) 50% -1px / calc(100% - 38px + 1px) 100% repeat-y;
+}
+
+.hud-conteudo::after {
+    content: "!";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--hud-font);
+    font-size: 7em;
+    color: var(--hud-overlay-icon);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hud-text .hud-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.7em;
+    color: var(--hud-text);
+}
+
+.hud-text .hud-titulo {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 15px;
+    line-height: 1.2;
+    color: var(--hud-text);
+}
+
+.hud-text .hud-divisor {
+    height: 1px;
+    background: var(--hud-content-bg);
+    margin: 0 auto 15px;
+    width: 100%;
+}
+
+/* CENTRALIZA A TELA DE SISTEMA */
+.centro {
+	display: grid;
+    align-items: center;
+    text-align: center;
+    align-content: space-around;
+    justify-content: center;
+}
+
+/* modelo carta */
+.letter H3 {
+    margin: 55px 0 0;
+    text-align: right;
+    transform: rotate(-10deg);
+    font-family: "SchoolBell";
+	color: black;
+	font-size: larger;
+}
+
+.letter {
+	background: #fafafa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 300px 25px rgba(222, 198, 122, 0.7) inset;
+    width: fit-content;
+    height: fit-content;
+    min-width: 20rem;
+    min-height: 10rem;
+    padding: 12px 24px;
+    position: relative;
+    font-style: italic;
+    font-family: auto;
+    font-size: medium;
+	color: black;
+}
+
+.letter:before, .letter:after {
+    content: "";
+    background: #fafafa;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2), inset 0 0 300px rgba(222,198,122,0.7);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+    transition: .5s;
+}
+
+.letter:before {
+    left: -5px;
+    top: 2px;  
+    transform: rotate(-1.5deg);
+}
+
+.letter:after {
+    right: -3px;
+    top: 0px;
+    transform: rotate(2.4deg);
+}
+
+.letter:hover:before {
+transform: rotate(0deg);
+border: solid rgba(111,99,61,0.4);
+border-width: 0px 0px 0px 1px;
+left: -6px;
+top: -6px; 
+}
+
+.letter:hover:after {
+transform: rotate(0deg);
+border: solid rgba(111,99,61,0.4);
+border-width: 0px 0px 0px 1px;
+right: 3px;
+top: -3px;
+}
+
+/* MODELO TELA ESCURA*/
+/* Estilos comuns para todas as telas escuras */
+
+/* Base de todas as telas */
+.tela-base {
+    --border-width: 2px;
+    border-radius: 8px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: initial;
+    padding: 1px 8px;
+    background-blend-mode: color-burn;
+    background-position: center;
+    background: var(--bg-800);
+    color: var(--fg-200);
+    font-family: Assistant, sans-serif;
+}
+
+.tela-base::after {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    filter: drop-shadow(1px 4px 1px black);
+}
+
+/* Tela neutra translúcida */
+.tela-neutra {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-blend-mode: normal;
+}
+
+.tela-neutra::after {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tela-preta {background: var(--bg-950);}
+.tela-roxa {background:url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/halo.webp); background-size: cover; font-family: 'Quantico'; padding: 0px 8px 0px 8px;}
+.tela-prata {background: linear-gradient(135deg, #8a8a8a, #b0b0b0, #d3d3d3);}
+.tela-prata::after {background: #ffffff00;}
+.tela-roxa::after{background: linear-gradient(350deg, #58387a 0%, #8a4eaf 50%, #7800ff 100%);}
+.tela-preta::after {background: var(--bg-300);}
+.tela-escura::after {background: #5497a5;}
+.tela-escura2::after {background: #8700ff;}
+.tela-escura3::after {background: #02ff00;}
+.tela-escura4::after {background: #ff000a;}
+.tela-escura5::after {background: #edff00;}
+.tela-brosa::after {background: #e784ff;}
+
+
+/* MODELO TELA FUNDO*/
+/* Estilos comuns para todas as telas fundo */
+.fundo-base {
+    --border-width-fundo: 2px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    background: var(--bg-600);
+    background-blend-mode: color-burn;
+    background-position: center;
+    border-radius: var(--border-width-fundo);
+    padding: 3px;
+    color: var(--fg-200);
+    font-family: Assistant;
+}
+
+.fundo-base::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width-fundo));
+    left: calc(-1 * var(--border-width-fundo));
+    z-index: -1;
+    width: calc(100% + var(--border-width-fundo) * 2);
+    height: calc(100% + var(--border-width-fundo) * 2);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width-fundo));
+    filter: drop-shadow(4px 5px 1px var(--bg-900));
+}
+
+/* Especificidades para cada modelo com gradiente */
+.tela-fundo::after {background: linear-gradient(30deg, #a17400,#fff38c,#a17400,#fff38c);}
+.tela-fundo2::after {background: linear-gradient(30deg, #4caf50, #0c590a, #4caf50, #0c590a);}
+.tela-fundo3::after { background: linear-gradient(30deg, #91150c,#fb2010,#91150c,#fb2010);}
+.tela-fundo4::after {background: linear-gradient(30deg, #831041, #fb1089, #831041, #fb1089);}
+.tela-fundo5::after {background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple);}
+.tela-fundo6::after {background: linear-gradient(30deg, #482a7d, #8f54f7, #482a7d, #8f54f7);}
+.tela-fundo7::after {background: linear-gradient(30deg, #bdb467, #fff38a, #bdb467, #fff38a);}
+.tela-fundo8::after {background: linear-gradient(30deg, #459d97, #a9fbf6, #459d97, #a9fbf6);}
+.tela-fundo9::after {background: linear-gradient(30deg, #bb3910, #ff4f17, #bb3910, #ff4f17);}
+.tela-fundo10::after {background: linear-gradient(30deg, #930c97, #f917ff, #930c97, #f917ff);}
+.tela-fundo11::after {background: linear-gradient(60deg, #cdcaca, #171919, #cdcaca, #171919);}
+.tela-fundo12::after {background: linear-gradient(174deg, #ffffff, #000000, #ffffff, #000000);}
+.tela-fundo13::after {background: linear-gradient(45deg, #ff0066, #ffcc00, #66ff00, #00ccff, #0066ff); background-size: 300% 300%; will-change: background-position; animation: BordaAnimada 8s infinite;}
+.tela-sangue {color: #f4d171; background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-sangue.webp) #0a0000; background-size: cover; text-shadow: 0 0 1px #000, 2px 2px 2px #000; background-blend-mode: color-dodge; font-family: 'Fredericka the Great';}
+.display-4,.display-5,.display-6,.display-7,.display-8,.display-9,.display-10,.display-11{min-width: fit-content; max-width: fit-content; position: relative; border-radius: 15px; z-index: 1;}
+.display-red {min-width: fit-content; max-width: fit-content; position: relative; background: #180e0e; border: 2px solid #f70d0d59; border-radius: 10px; z-index: 1;}
+.display-4::before,.display-5::before,.display-6::before,.display-7::before,.display-8::before,.display-9::before,.display-10::before,.display-11::before {content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.3); z-index: -1; border-radius: 15px;}
+.display-red:before {content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.06); background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-4.webp) center; background-size: contain; background-position: center;}
+.display-4::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-4.webp) center; background-size: contain; background-position: center;}
+.display-5::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-5.webp) center; background-size: contain; background-position: center;}
+.display-6::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-6.webp) center; background-size: contain; background-position: center; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.2);}
+.display-7::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-7.webp) center; background-size: contain; background-position: center; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.1);}
+.display-8::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-8.webp) center; background-size: contain; background-position: center; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.2);}
+.display-9::before { background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-9.webp) center; background-size: contain; background-position: center;}
+.display-10::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-10.webp) center; background-size: contain; background-position: center; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.06) invert(1);}
+.display-11::before {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/display-11.webp) center; background-size: contain; background-position: center; filter: drop-shadow(1px 2px 2px #6ecae36b) opacity(0.3) invert(1);}
+
+
+.tela-sangue::after {background: linear-gradient(1deg, #a10000, #5a0606, #a10000, #260909, #a10000, #952525, #a10000, #930808);}
+
+/* Animação */
+@keyframes BordaAnimada {
+    0% { background-position: 0% 0%; }
+    20% { background-position: 100% 0%; }
+    40% { background-position: 100% 100%; }
+    60% { background-position: 0% 100%; }
+    80% { background-position: 50% 50%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* MODELO TELA NEKO e NEKO2 */
+.tela-neko, .tela-neko2 {
+    background-size: contain !important;
+    background-blend-mode: luminosity;
+    background-position: center, center !important;
+    --border-width-fundo: 2px;
+    border-radius: 8px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 8px;
+    color: #e7e7e7;
+    font: 18px atma;
+    text-shadow: 0 0 2px black, 0 1px 6px black, 2px 2px 2px black;
+}
+
+.tela-neko {
+    background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-neko.webp) #000000;
+}
+
+.tela-neko2 {
+    background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-neko-2.webp) #000000;
+}
+
+.tela-neko::before, .tela-neko2::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 20px;
+    background: url(/wp-content/themes/fictioneer-child-theme/img/divisores/76.webp);
+    left: 0;
+    bottom: 3px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: contrast(.6);
+}
+
+.tela-neko::after, .tela-neko2::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width-fundo));
+    left: calc(-1 * var(--border-width-fundo));
+    z-index: -1;
+    width: calc(100% + var(--border-width-fundo) * 2);
+    height: calc(100% + var(--border-width-fundo) * 2);
+    background: linear-gradient(to right, rgba(251, 251, 239, 0.5), #fbfbefc7);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width-fundo));
+    filter: drop-shadow(1px 4px 1px black);
+}
+
+/* HR NEKO e NEKO2 */
+#hr-neko, #hr-neko2 {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 2.8rem;
+    overflow: hidden;
+    filter: contrast(1);
+    margin-bottom: -18px;
+    margin-top: -8px;
+    background: url(/wp-content/themes/fictioneer-child-theme/img/divisores/neko-hr.webp);
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hr-neko::before, #hr-neko2::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(/wp-content/themes/fictioneer-child-theme/img/divisores/neko-lua.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: contrast(1);
+}
+
+
+/* Estilos Comuns para Tela Arkus */
+.tela-arkus, .tela-arkus2 {
+    background: linear-gradient(180deg, black 59px, var(--bg-800));
+    background-size: 360px;
+    background-blend-mode: color-burn;
+    background-position: initial;
+    --border-width-fundo: 2px;
+    border-radius: 8px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 8px;
+    color: wheat;
+    font-family: 'Emilys Candy';
+    text-shadow: 1px 3px 5px #ff0000a1;
+}
+
+.tela-arkus::before, .tela-arkus2::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 20px;
+    background: url(/wp-content/themes/fictioneer-child-theme/img/divisores/arkus-baixo.webp);
+    left: 0;
+    bottom: 3px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: sepia(1) hue-rotate(310deg) saturate(2.5);
+    opacity: 0.5;
+}
+
+.tela-arkus::after, .tela-arkus2::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width-fundo));
+    left: calc(-1 * var(--border-width-fundo));
+    z-index: -1;
+    width: calc(100% + var(--border-width-fundo) * 2);
+    height: calc(100% + var(--border-width-fundo) * 2);
+    background: #dd797c61;
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width-fundo));
+    filter: drop-shadow(1px 4px 1px black);
+}
+
+/* Estilos Específicos para a Tela Arkus */
+#hr-arkus, #hr-arkus2 {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    filter: sepia(1) hue-rotate(310deg) saturate(2.5);
+    margin-bottom: -18px;
+    margin-top: -8px;
+    background: url(/wp-content/themes/fictioneer-child-theme/img/divisores/arkus-cima.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8; /* Aplicar apenas no hr-arkus */
+}
+
+#hr-arkus::before {
+    content: '';
+    position: absolute;
+    width: 6rem;
+    height: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-arkus.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.arkus2-text::before {
+    content: '';
+    position: absolute;
+    width: 6rem;
+    height: 5rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-arkus-2.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    filter: sepia(1) hue-rotate(310deg) saturate(2.5);
+    z-index: -1;
+}
+
+
+/* MODELO FOLHA */
+.folha {
+    position: relative;
+    background-image: linear-gradient(to bottom, #fdf288, #fdf288 90%, #c4e292, #c4e292);
+    background-size: 100% 26px;
+    min-width: 210px;
+    min-height: 70px;
+    width: fit-content;
+    height: fit-content;
+    font-size: var(--fs-em-s);
+    margin: 8px;
+    color: #000;
+    font-family: 'Coming Soon', cursive;
+    line-height: var(--fs-em-s);
+}
+
+/* Linha vermelha vertical (margem) */
+.folha::after {
+	content: "";
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 100%;
+    width: 5px;
+    border-left: 1px solid rgba(254, 148, 99, 0.6);
+    border-right: 1px solid rgba(254, 148, 99, 0.6);
+}
+
+/* Texto padrão dentro da folha */
+.folha p {
+  padding-left: var(--fs-em-xl); /* Alinha o texto à direita da linha vermelha */
+  color: #333;
+}
+
+/* MODELO QUADRO NEGRO */
+.quadro {
+    background-color: var(--green-600);
+    border: 5px solid var(--primary-600);
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+/* Estilo do texto com efeito de giz */
+.quadro p {
+    color: var(--bg-100); /* Cor branca para simular o giz */
+	font-size: var(--wp--preset--font-size--medium) !important;
+    font-family: 'Schoolbell', cursive; /* Fontes que lembram escrita de giz */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2), -2px -2px 0px rgba(255, 255, 255, 0.1);
+    white-space: pre-wrap; /* Mantém a formatação do texto */
+}
+
+/* Efeito de riscos de giz no quadro */
+.quadro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    pointer-events: none; /* Não interfere na interação com o conteúdo */
+}
+
+/* CLASSE COMUM PARA SISTEMAS */
+.sistema-base {
+    min-width: 20rem;
+    max-width: max-content;
+    border-radius: 1rem;
+    filter: drop-shadow(2px 4px 2px #000);
+    font-family: 'Chakra Petch';
+    background-size: cover !important;
+}
+
+/* GRADIENTES E CORES ESPECÍFICAS */
+.sistema-avalon {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-avalon.webp);}
+.sistema-sangrento {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-sangrento.webp) #00000057; background-blend-mode: color-burn;}
+.sistema-azulado {background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-azulado.webp) #00000057; background-blend-mode: color-burn;}
+.sistema-roxo { background: url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-roxo.webp); background-color: #0000008a; background-blend-mode: color-burn;}
+.sistema-violeta { background: linear-gradient(135deg, #8a4eaf, #d8b9f3); }
+.sistema-marrom { background: linear-gradient(135deg, #d2b48c, #8b4513); }
+.sistema-laranja { background: linear-gradient(135deg, #cd8857, #ff5722); }
+.sistema-violeta2 { background: linear-gradient(135deg, #6a0dad, #ff00ff); }
+.sistema-indigo { background: linear-gradient(135deg, #6a5acd, #4b0082); }
+.sistema-laranja2 { background: linear-gradient(135deg, #ffab40, #ff6f20); }
+.sistema-amarelo { background: linear-gradient(135deg, #fff9c4, #fbc02d); }
+.sistema-escuro { background: linear-gradient(250deg, #3d3d3d, #232222); }
+.sistema-cell { background: #040e33; }
+.sistema-vermelho { background: linear-gradient(135deg, #d13447, #ff3d00); }
+.sistema-verde { background: linear-gradient(135deg, #176d1a, #54c159); }
+.sistema-cor { background: var(--wp--preset--gradient--luminous-dusk);}
+.sistema { background: linear-gradient(135deg, #bbdefb, #1e88e5);}
+
+
+/* ESTILIZAÇÃO COMUM DO BEFORE */
+.sistema-base::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 20px;
+    background: url(/wp-content/themes/fictioneer-child-theme/img/divisores/141.webp) center no-repeat;
+	left: 0;
+    bottom: 0;
+    margin-bottom: 5px;
+    background-size: contain;
+    opacity: .5;
+}
+
+/* FILTROS ESPECÍFICOS DO BEFORE */
+.sistema-amarelo::before,
+.sistema-laranja2::before,
+.sistema-vermelho:before,
+.sistema::before {
+    filter: invert(1);
+}
+
+
+
+/* ESTILIZAÇÃO DE HR ESPECÍFICO */
+#hr-avalon, 
+#hr-sangrento, 
+#hr-violeta, 
+#hr-azulado, 
+#hr-marrom, 
+#hr-laranja, 
+#hr-violeta2, 
+#hr-indigo, 
+#hr-laranja2, 
+#hr-amarelo, 
+#hr-escuro, 
+#hr-vermelho, 
+#hr-verde, 
+#hr-sistema, 
+#hr-cor,
+#hr-roxo {
+    background: transparent url(/wp-content/themes/fictioneer-child-theme/img/divisores/135.webp) center no-repeat;
+    opacity: .5;
+    position: relative;
+    background-size: contain;
+    height: 2rem;
+    top: 0.5rem;
+    border-color: transparent;
+}
+
+/* COR DE FILTRO PARA HR ESPECÍFICO */
+#hr-laranja2 { filter: invert(1) drop-shadow(1px -3px 1px #ff6f20); }
+#hr-amarelo { filter: invert(1) drop-shadow(1px -3px 1px #fbc02d); }
+#hr-vermelho { filter: invert(1) drop-shadow(1px -3px 1px #ff3d00); }
+#hr-sistema { filter: invert(1) drop-shadow(1px -3px 1px #1e88e5); }
+
+
+/* ESTILOS COMUNS */
+.draco-sen-base {
+    min-width: 20rem;
+    max-width: max-content;
+    border-radius: 1rem;
+    filter: drop-shadow(2px 4px 2px #000);
+    font-family: 'Chakra Petch';
+}
+
+.sistema-draco {
+    background: linear-gradient(156deg, #6b4f3c, #b57722, #f9a800, #b57722);
+}
+
+.sistema-sen {
+    background: linear-gradient(156deg, #5c1516, #9e1f20, #a52323, #5c1516);
+}
+
+.draco-sen-base::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 30px;
+    background: url(/wp-content/themes/fictioneer-child-theme/img/divisores/ouro2.webp) center no-repeat;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 5px;
+    background-size: contain;
+    filter: drop-shadow(1px 3px 1px #000);
+}
+
+#hr-draco,
+#hr-sen {
+    background: transparent url(/wp-content/themes/fictioneer-child-theme/img/divisores/ouro1.webp) center no-repeat;
+    filter: drop-shadow(1px 3px 1px #000);
+    position: relative;
+    background-size: contain;
+    height: 3rem;
+    top: 0.5rem;
+}
+
+/* ESTILOS COMUNS */
+.chifre-base {
+    min-width: 20rem;
+    max-width: max-content;
+    filter: var(--drop-shadow-xl);
+    font-family: 'Chakra Petch';
+    border-top: ridge 7px;
+    border-bottom: groove 6px;
+    margin-top: 30px;
+    border-radius: 1rem;
+}
+
+.sistema-over {background: radial-gradient(circle, rgba(10, 90, 143, 0.6) 0%, rgba(25, 75, 118, 0.4) 51%, rgba(25, 75, 118, 0.2) 92%); border-color: #0aaed7;}
+.sistema-over2 {background: radial-gradient(circle, rgb(143 10 10 / 60%) 0%, rgb(118 25 25 / 40%) 51%, rgba(25, 75, 118, 0.2) 92%); border-color: #b31a1a;}
+.sistema-ouro {background: transparent url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-ouro.webp) center no-repeat; background-size: cover; border-color: #cdb72e;}
+.sistema-vermelho2 {background: linear-gradient(rgb(91 2 2) 0%, rgb(121 29 29) 51%, rgb(161 39 39) 92%); border-color: #bf1e0f;}
+.sistema-azul {background-image: radial-gradient(circle, #0a5a8f 0, #194b76 51%, #194b76 92%); border-color: #0aaed7;}
+.sistema-vermelho3 {background-image: radial-gradient(circle, #8f0a0a 0, #761919 51%, #761919 92%); border-color: #b31a1a;}
+
+/* MODELO TELA AVERMELHADO */
+.sistema-avermelhado {
+    background: transparent url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-esverdeado.webp) center no-repeat;
+    background-size: cover;
+    background-color: red;
+    background-blend-mode: darken;
+    border-color: red;
+}
+
+/* MODELO TELA ESVERDEADO */
+.sistema-esverdeado {
+    background: transparent url(/wp-content/themes/fictioneer-child-theme/img/telas-sistema/tela-esverdeado.webp) center no-repeat;
+    background-size: cover;
+    background-color: green;
+    background-blend-mode: darken;
+    border-color: green;
+}
+
+
+#hr-azul,
+#hr-over,
+#hr-over2,
+#hr-vermelho2,
+#hr-vermelho3,
+#hr-ouro,
+#hr-avermelhado,
+#hr-esverdeado {
+    height: 48px;
+    filter: drop-shadow(1px 3px 1px #000);
+    position: absolute;
+    border-color: transparent;
+    width: 100%;
+}
+
+#hr-azul,
+#hr-vermelho3,
+#hr-over,
+#hr-over2,
+#hr-ouro,
+#hr-avermelhado,
+#hr-esverdeado {
+	background: transparent url(/wp-content/themes/fictioneer-child-theme/img/divisores/topo11.webp) center no-repeat;
+	background-size: contain;
+	margin: -40px 0;
+}
+
+#hr-vermelho2 {
+    background: transparent url(/wp-content/themes/fictioneer-child-theme/img/divisores/topo12.webp) center no-repeat;
+    background-size: contain;
+    margin: -30px 0;
+}
+
+/* Filtros Específicos */
+#hr-avermelhado, #hr-vermelho3, #hr-over2 {filter: invert(1)}
+#hr-esverdeado {filter: drop-shadow(1px 3px 1px #000) hue-rotate(273deg);}
+#hr-ouro {filter: drop-shadow(1px 3px 1px #000) hue-rotate(222deg);}
+
+/* MODELO COMUM DO 8BIT */
+._8b {
+    margin: 1rem 2rem;
+    min-width: 20ch;
+    max-width: max-content;
+    padding: 2ch;
+    position: relative;
+    border-width: 8px; /* Adicionando largura da borda */
+    border-style: solid; /* Adicionando estilo da borda */
+}
+/* Estilos Comuns */
+._8b {
+    margin: 1rem 2rem;
+    min-width: 20ch;
+    max-width: max-content;
+    padding: 1ch 2ch;
+    position: relative;
+    border-width: 8px;
+    border-style: solid;
+    border-image-slice: 8; /* Para garantir que o SVG seja cortado corretamente */
+}
+/* Bordas com SVG Coloridas */
+._8bAzul {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%230038FF'/%3E%3C/svg%3E") 8 stretch; /* Azul */}
+._8bVerde {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%2300FF38'/%3E%3C/svg%3E") 8 stretch; /* Verde */}
+._8bVermelha {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FF0038'/%3E%3C/svg%3E") 8 stretch; /* Vermelho */}
+._8bAmarelo {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FFCC00'/%3E%3C/svg%3E") 8 stretch; /* Amarelo */}
+._8bLaranja {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FF7F00'/%3E%3C/svg%3E") 8 stretch; /* Laranja */}
+._8bRoxo {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23800080'/%3E%3C/svg%3E") 8 stretch; /* Roxo */}
+._8bCiano {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%2300FFFF'/%3E%3C/svg%3E") 8 stretch; /* Ciano */}
+._8bMagenta {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FF00FF'/%3E%3C/svg%3E") 8 stretch; /* Magenta */}
+._8bCinza {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23808080'/%3E%3C/svg%3E") 8 stretch; /* Cinza */}
+._8bMarrom {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%238B4513'/%3E%3C/svg%3E") 8 stretch; /* Marrom */}
+._8bAzulClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23A0C4FF'/%3E%3C/svg%3E") 8 stretch; /* Azul Claro */}
+._8bVerdeClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23A0FF9D'/%3E%3C/svg%3E") 8 stretch; /* Verde Claro */}
+._8bVermelhoClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FFB0B0'/%3E%3C/svg%3E") 8 stretch; /* Vermelho Claro */}
+._8bAmareloClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FFF7A0'/%3E%3C/svg%3E") 8 stretch; /* Amarelo Claro */}
+._8bRoxoClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23D4A0FF'/%3E%3C/svg%3E") 8 stretch; /* Roxo Claro */}
+._8bLaranjaClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23FFB0A0'/%3E%3C/svg%3E") 8 stretch; /* Laranja Claro */}
+._8bRoxoClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23B39DCE'/%3E%3C/svg%3E") 8 stretch; /* Roxo Claro */}
+._8bCianoClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%238AD8E6'/%3E%3C/svg%3E") 8 stretch; /* Ciano Claro */}
+._8bMagentaClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23D45D9B'/%3E%3C/svg%3E") 8 stretch; /* Magenta Claro */}
+._8bCinzaClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23A9A9A9'/%3E%3C/svg%3E") 8 stretch; /* Cinza Claro */}
+._8bMarromClaro {border-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H8v4H4v4H0v8h4v4h4v4h8v-4h4v-4h4V8h-4V4h-4V0zm0 4v4h4v8h-4v4H8v-4H4V8h4V4h8z' fill='%23C9B69D'/%3E%3C/svg%3E") 8 stretch; /* Marrom Claro */}
+/* MODELO COMUM BALÃO SIMPLES - VERSÃO MELHORADA */
+
+._balao-simples {
+  position: relative;
+  max-width: 75%;
+  width: fit-content; /* Novo: faz o container se ajustar ao conteúdo */
+}
+
+/* Balão claro (direita) */
+._b-dir {
+  margin-left: auto; /* Empurra para direita */
+}
+
+._b-dir ._b-text {
+  background-color: ivory;
+  color: dimgrey;
+  margin-left: 1em; /* Reduzido para melhor espaçamento */
+}
+
+._b-dir ._b-text::after {
+  border-top-color: ivory;
+  right: 1.5em;
+}
+
+/* Balão escuro (esquerda) */
+._b-esq {
+  margin-right: auto; /* Novo: força permanecer na esquerda */
+}
+
+._b-esq ._b-text {
+  background-color: lightgrey;
+  color: dimgrey;
+  margin-right: 1em; /* Reduzido para melhor espaçamento */
+}
+
+._b-esq ._b-text::after {
+  border-top-color: lightgrey;
+  left: 1.5em;
+}
+
+/* Estilos comuns */
+._b-text {
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  padding: 0 1.2em; /* Aumentado para melhor visualização */
+  position: relative;
+  display: inline-block; /* Novo: melhor comportamento do container */
+}
+
+._b-text::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 100%;
+  border: .75rem solid transparent;
+  border-bottom: none;
+  filter: drop-shadow(0 0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+}
+
+._balao-gradient {
+  --r: 1em;  /* o raio */
+  --t: 1.5em; /* o tamanho da cauda */
+  
+  max-width: 75%;
+  padding: 0.1em 1em;
+  border-inline: var(--t) solid #0000;
+  border-radius: calc(var(--r) + var(--t))/var(--r);
+  mask: 
+  radial-gradient(100% 100% at var(--_p) 0, #0000 99%, #000 102%) 
+  var(--_p) 100%/var(--t) var(--t) no-repeat,
+  linear-gradient(#000 0 0) padding-box;
+  
+}
+
+/* Balão da esquerda com gradiente específico */
+._bg-esq {
+  --_p: 0;
+  border-bottom-left-radius: 0;
+  margin: 0 10ch 0 0;
+  place-self: start;
+  background: linear-gradient(135deg, #8459b4, #1f85c0) border-box; /* gradiente específico para o balão da esquerda */
+  color: lightcyan;
+}
+
+/* Balão da direita com gradiente específico */
+._bg-dir {
+  --_p: 100%;
+  margin: 0 0 0 10ch;
+  border-bottom-right-radius: 0 0;
+  place-self: end;
+  background: linear-gradient(135deg, #f2994a, #f2c94c) border-box; /* gradiente específico para o balão da direita */
+  color: maroon;
+}
+
+/* FILTROS */
+
+/* ===== DESFOQUE ===== */
+._blur-1 {filter: blur(1px);}
+._blur-2 {filter: blur(2px);}
+._blur-3 {filter: blur(3px);}
+._blur-4 {filter: blur(4px);}
+._blur-5 {filter: blur(5px);}
+._blur-6 {filter: blur(6px);}
+._blur-7 {filter: blur(7px);}
+._blur-8 {filter: blur(8px);}
+._blur-9 {filter: blur(9px);}
+._blur-10 {filter: blur(10px);}
+
+/* ===== BRILHO ===== */
+._brit-1 {filter: brightness(0.5);}
+._brit-2 {filter: brightness(0.75);}
+._brit-3 {filter: brightness(1);}
+._brit-4 {filter: brightness(1.5);}
+._brit-5 {filter: brightness(2);}
+._brit-6 {filter: brightness(3);}
+._brit-7 {filter: brightness(4);}
+._brit-8 {filter: brightness(5);}
+
+/* ===== CONTRASTE ===== */
+._cont-1 {filter: contrast(0.5);}
+._cont-2 {filter: contrast(0.8);}
+._cont-3 {filter: contrast(1);}
+._cont-4 {filter: contrast(1.5);}
+._cont-5 {filter: contrast(2);}
+._cont-6 {filter: contrast(3);}
+._cont-7 {filter: contrast(4);}
+._cont-8 {filter: contrast(5);}
+
+/* ===== SATURAÇÃO ===== */
+._sat-1 {filter: saturate(0);}
+._sat-2 {filter: saturate(0.5);}
+._sat-3 {filter: saturate(1);}
+._sat-4 {filter: saturate(1.5);}
+._sat-5 {filter: saturate(2);}
+._sat-6 {filter: saturate(3);}
+._sat-7 {filter: saturate(4);}
+._sat-8 {filter: saturate(5);}
+
+/* ===== HUE ROTATE ===== */
+._hue-1 {filter: hue-rotate(30deg);}
+._hue-2 {filter: hue-rotate(60deg);}
+._hue-3 {filter: hue-rotate(90deg);}
+._hue-4 {filter: hue-rotate(120deg);}
+._hue-5 {filter: hue-rotate(150deg);}
+._hue-6 {filter: hue-rotate(180deg);}
+._hue-7 {filter: hue-rotate(210deg);}
+._hue-8 {filter: hue-rotate(240deg);}
+._hue-9 {filter: hue-rotate(270deg);}
+._hue-10 {filter: hue-rotate(300deg);}
+._hue-11 {filter: hue-rotate(330deg);}
+._hue-12 {filter: hue-rotate(360deg);}
+
+/* ===== OPACIDADE ===== */
+._op-10 {opacity: 0.1;}
+._op-25 {opacity: 0.25;}
+._op-50 {opacity: 0.5;}
+._op-75 {opacity: 0.75;}
+._op-90 {opacity: 0.9;}
+._op-100 {opacity: 1;}
+
+/* ===== ESPECIAIS ===== */
+._gray {filter: grayscale(1);}
+._invert {filter: invert(1);}
+._sepia-1 {filter: sepia(1);}
+._sepia-2 {filter: sepia(0.5);}
+
+/* ===== COMBINAÇÕES ÚTEIS ===== */
+._darken {filter: brightness(0.5) saturate(0.8);}
+._lighten {filter: brightness(1.2) saturate(1.2);}
+._vintage {filter: sepia(0.5) contrast(1.2) brightness(0.9);}
+._washed {filter: grayscale(0.2) brightness(1.1) saturate(0.8);}
+._ghost {filter: grayscale(1) opacity(0.5);}
+._glow {filter: brightness(1.3) saturate(2);}
+._golden {filter: sepia(1) saturate(3) brightness(1.1);}
+._noir {filter: grayscale(1) contrast(1.5);}
+._nightvision {filter: hue-rotate(120deg) brightness(1.2) contrast(1.5);}
+._void {filter: brightness(0.1) contrast(2) saturate(0.2);}
+
+/* ===== VISUAIS TEMÁTICOS ===== */
+._alerta       {filter: brightness(1.1) contrast(1.3) hue-rotate(15deg);}
+._frio         {filter: hue-rotate(210deg) saturate(1.5) brightness(0.9);}
+._quente       {filter: hue-rotate(30deg) saturate(2) brightness(1.1);}
+._neutro       {filter: grayscale(0.1) brightness(1);}
+._distorcido   {filter: invert(0.5) contrast(2);}
+._batida       {filter: hue-rotate(180deg) blur(1px) contrast(1.2);}
+._sonho        {filter: brightness(1.3) blur(2px) saturate(1.2);}
+._caos         {filter: hue-rotate(270deg) invert(0.3) contrast(2);}
+._pesadelo     {filter: grayscale(0.8) brightness(0.5) blur(1px);}
+._prisma       {filter: hue-rotate(360deg) saturate(4);}
+._solarizado   {filter: contrast(2.5) brightness(1.2) hue-rotate(45deg);}
+._oculto       {filter: brightness(0.3) saturate(0.3) grayscale(1);}
+._corrompido   {filter: invert(0.9) hue-rotate(135deg) saturate(1.2);}
+._radiante     {filter: brightness(1.6) saturate(2.5);}
+._cinza-profundo {filter: grayscale(1) brightness(0.6);}
+._vivido       {filter: contrast(1.5) saturate(3);}
+._antigo       {filter: sepia(0.9) brightness(0.95) contrast(1.1);}
+._liquido      {filter: hue-rotate(300deg) blur(1px) saturate(1.8);}
+._plasma       {filter: hue-rotate(180deg) brightness(1.3) saturate(2);}
+._etereo       {filter: opacity(0.6) blur(2px) saturate(1.5);}
+
+
+/* Estilos do Texto */
+._8b-text {font: 9px 'Press Start 2P';  color: var(--bg-100);}
+.roxa-text {padding: 2rem;}
+.prata-text {color: #3d3d3d; font-weight: 500; font-family: 'Chakra Petch'; font-size: 1.1rem; text-shadow: #ffffff .1em .1em .2em, #000000 .1em .1em .2em;}
+.neko-text, .neko2-text {margin: 2rem 0;}
+.arkus-text, .arkus2-text {margin: 1rem 0 2rem 0; position: relative; z-index: 10;}
+.texto-sistema {padding: 0rem 1rem 2rem 1rem; font-weight: 500; font-size: 1.1rem; color: #fff; text-shadow: #000 .1em .1em .2em;}
+.azul-text, .over-text {padding: 0 1rem; font-weight: 500; font-size: 1.1rem; color: #75ffff; text-shadow: #000 .1em .1em .2em, #000 .1em .1em .2em; border-radius:1rem;}
+.avermelhado-text, .esverdeado-text {padding: 1rem; font-weight: 500; font-size: 1.1rem; color: white; text-shadow: #000 .1em .1em .2em, #000 .1em .1em .2em; background: #49492b6b;}
+.ouro-text { padding: 1rem; font-weight: 500; font-size: 1.1rem; color: #ffff4f; text-shadow: #000 .1em .1em .2em, #000 .1em .1em .2em; background: #49492b6b; border-radius:1rem;}
+.vermelho-text { padding: 0 1rem; font-weight: 500; font-size: 1.1rem; color: #ffafaf; text-shadow: #000 .1em .1em .2em, #000 .1em .1em .2em;}
+.display-text {color: var(--fg-500); text-shadow: 0 0 1px #000, 2px 2px 2px #000; font-family: Assistant; padding: 2ch; background: #0f111fdb; border-radius: 15px;}
+.display-text-red {color: var(--fg-500); text-shadow: 0 0 1px #000, 2px 2px 2px #000; font-family: Assistant; padding: 2ch; background: #0f111fdb; border-radius: 15px;}
+.fundo-text, .sangue-text {padding: 0 1ch;}
+.folha-text {padding: 0.1px;}
+
+/* REMOVER O ESPAÇAMENTO EXTRA */
+.fundo-base br, .tela-base br, .tela-sangue br,  .tela-neko br, .tela-neko2 br, .tela-arkus br, .tela-arkus2 br, .quadro br, .folha br, .folha-text br, ._8b br, .balao-simples br, ._hex br {
+	display: none;
+}
+
+[data-author-id="60"] .fundo-text br, .fundo-text br {
+  display: block !important;
+}
+[data-author-id="60"] .fundo-text > br:first-child {
+  display: none !important;
+}
+
+/* REMOVER O ESPAÇAMENTO EXTRA */
+.fundo-base p, .tela-base p, .tela-sangue p, .tela-neko p, .tela-neko2 p, .tela-arkus p, .tela-arkus2 p, .quadro p, .folha p, .folha-text p, ._8b p, .balao-simples p, ._hex p {
+	margin-bottom: 0.6rem !important;
+}
+
+.preta-text kbd {--kbd-background: rgb(85 85 85 / 17%); border: .5px solid var(--badge-color-002); border-radius: 6px;}

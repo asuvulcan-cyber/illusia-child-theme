@@ -1,0 +1,69 @@
+/* Estilo para o meta-story-identity */
+._custom-story-meta {display: flex; align-items: baseline; padding: 0 5px;}
+._custom-story-meta, .custom-story-icon {font-size: 0.8em; color: var(--fg-700); flex-direction: column;}
+.custom-story-info {font-style: italic; margin-left: 5px;}
+a.author {color: var(--fg-700);}
+:root[data-theme=default] ._id-header {border: .1px solid var(--bg-300); border-radius: 5px; padding: 0 10px 0 5px; background: var(--bg-500); margin: 1.5px 0; /* Realce */}
+:root[data-theme=default] ._id-header:hover {background: var(--bg-300);}
+:root[data-theme=default] .frequency-details, [data-theme=default] .vote-summation-details {display: none; padding: 0 10px; background: var(--bg-500); border: 1px solid var(--bg-300); border-radius: 5px; margin-top: 5px; font-size: 0.85em; width: max-content; box-sizing: border-box; position: relative; color: var(--fg-700);}
+
+:root[data-mode=light][data-theme=default] ._id-header {border: .1px solid var(--bg-400); border-radius: 5px; padding: 0 10px 0 5px; background: var(--bg-300); margin: 1.5px 0; /* Realce */}
+:root[data-mode=light][data-theme=default] ._id-header:hover {background: var(--bg-400);}
+:root[data-mode=light][data-theme=default] .frequency-details, :root[data-mode=light][data-theme=default] .vote-summation-details {display: none; padding: 0 10px; background: var(--bg-300); border: 1px solid var(--bg-400); border-radius: 5px; margin-top: 5px; font-size: 0.85em; width: max-content; box-sizing: border-box; position: relative; color: var(--fg-700);}
+
+
+
+
+/* SHORTCODE QUE EXIBE A FREQUÊNCIA DE UMA HISTÓRA */
+.story-frequency-meta {border: 1px solid var(--primary-500); border-radius: var(--border-radius); margin: 15px 0; max-width: max-content; background-color: var(--bg-400); color: var(--fg-900); padding: 15px;}
+.story-frequency-meta h3 {margin-top: 0; font-size: 1.5em; color: var(--fg-400);}
+.story-frequency-meta p {font-size: 16px; font-weight: bold; margin: 10px 0; color: var(--fg-400);}
+.story-frequency-meta ul {list-style: none; padding: 0; margin: 0 10px}
+.story-frequency-meta ul li { font-size: 14px; margin: 5px 0; font-weight: 700; color: var(--fg-800);}
+.story-frequency-meta ul li strong {color: var(--fg-400);}
+.story-frequency-meta.has-cover {background: linear-gradient(to left, var(--bg-100), var(--bg-900) 80%);}
+.story-frequency-meta.no-cover {background-color: var(--bg-100);}
+
+/* ACORDEÃO PARA EXIBIR A FREQUÊNCIA DETALHADA */
+.frequency-header {transition: background 0.3s;}
+.frequency-details, .vote-summation-details {display: none; padding: 0 10px; background: var(--bg-300); border: 1px solid var(--bg-500); border-radius: 5px; margin-top: 5px; font-size: 0.85em; width: max-content; box-sizing: border-box; position: relative; color: var(--fg-700);}
+.frequency-details p, .vote-summation-details p {font-size: .85rem; margin: .5rem 0;}
+.frequency-details ul, .vote-summation-details ul {margin: 0 .5rem; padding: 0 0 0 10px; list-style-type: '- ';}
+.frequency-details li, .vote-summation-details li { margin-bottom: 5px;}
+._custom-story-frequency {position: relative; width: 100%; max-width: 300px; box-sizing: border-box; padding: 0 5px; justify-content: flex-start; flex-direction: column;}
+
+
+/* DIMENSÕES DA CAPA NA HISTÓRIA */
+.story__header {--floating-cover-image-width: var(--floating-cover-image-width-free);
+				--this-img-height: var(--floating-cover-image-height, clamp(14.5rem, 3.5714285714vw + 130.7142857143px, 165px));
+				--floating-cover-image-height: var(--floating-cover-image-height-free);}
+
+/* BANDEIRA E DEGRADÊ NA TAG DE NACIONALIDE */
+.tag-pill._taxonomy-fandom._taxonomy-slug-brasileira {background-image: linear-gradient(to right, var(--tag-background-grad), var(--tag-background) 80%), url(/wp-content/themes/fictioneer-child-theme/img/bandeiras/br.svg); background-size: cover; background-position: center;}
+.tag-pill._taxonomy-fandom._taxonomy-slug-chinesa {background-image: linear-gradient(to right, var(--tag-background-grad), var(--tag-background) 80%), url(/wp-content/themes/fictioneer-child-theme/img/bandeiras/cn.svg); background-size: cover; background-position: top;}
+.tag-pill._taxonomy-fandom._taxonomy-slug-coreana {background-image:linear-gradient(to right, var(--tag-background-grad), var(--tag-background) 80%), url(/wp-content/themes/fictioneer-child-theme/img/bandeiras/kr.svg); background-size: cover; background-position: center;}
+.tag-pill._taxonomy-fandom._taxonomy-slug-japonesa {background-image:linear-gradient(to right, var(--tag-background-grad), var(--tag-background) 80%), url(/wp-content/themes/fictioneer-child-theme/img/bandeiras/jp.svg); background-size: cover; background-position: center;}
+.tag-pill._taxonomy-fandom._taxonomy-slug-ocidental {background-image: linear-gradient(to right, var(--tag-background-grad), var(--tag-background) 80%), url(/wp-content/themes/fictioneer-child-theme/img/bandeiras/un.svg); background-size: cover; background-position: center;}
+
+.recommendation-section {margin-top: 3rem;}
+.recommendation-buttons {margin-top: 10px;}
+._custom-recommend-button {background-color: var(--bg-400); border: none; padding: 5px 15px; margin: 5px; border-radius: 8px; cursor: pointer; font-size: large}
+._custom-recommend-button:hover {background-color: var(--bg-600);}
+._custom-recommendation-result {margin-top: 20px;}
+._custom-recommend-button  {transition: transform 0.5s ease, color 0.5s ease;}
+._custom-recommend-button:hover  {transform: scale(1.2);}
+.chapter__actions-left {flex-basis: 25% !important;}
+.chapter__support a {opacity: 0.9; background: var(--button-secondary-background); color: var(--button-secondary-color); border: var(--button-secondary-border);}
+.chapter__support-message {opacity: .9 !important; color: var(--button-secondary-color) !important;}
+
+/* Estilo base para a mensagem de voto */
+.vote-message {font-size: 1em; padding: 10px 15px; border-radius: 5px; margin-top: 10px; text-align: center; transition: all 0.3s ease;}
+.success-message {background-color: var(--bg-100-free); color: var(--green-400);}
+.error-message {background-color: var(--bg-500-free); color: var(--red-400);}
+.info-message {background-color: var(--bg-300-free); color: var(--primary-400);}
+.vote-message h4 {font-weight: bold; margin: 0;}
+/* Itens Ocultados */
+.menu-item.menu-item-icon.rss-main-link {display: none;}
+.button._secondary.popup-menu-toggle[aria-label="Assinar"] {display: none}
+.rss-link.tooltipped.media-buttons__item, .feedly.tooltipped.hide-below-640.media-buttons__item, .inoreader.tooltipped.hide-below-640.media-buttons__item, .toggle-last-clicked.subscribe-menu-toggle.button._secondary.popup-menu-toggle._popup-right-if-last {display: none;}
+

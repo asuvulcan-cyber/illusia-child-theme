@@ -1,0 +1,1184 @@
+/* ==================================================
+   VARIÁVEIS GLOBAIS
+================================================== */
+:root {
+  /* ------- Tipografia ------- */
+  --ff-medieval: 'MedievalSharp', cursive;
+  --ff-assis: 'Assistant';
+  --ff-badge-size: 0.8em;
+
+  /* ------- Cores Base / Badges ------- */
+  --badge-color-001: #fff;
+  --badge-color-002: #2f2f2f;
+  --badge-color-003: #2a2015;
+  --badge-color-004: #e0f0e5;
+  --badge-color-005: #e8d9c5;
+  
+  /* ------- Cores e Gemas ------- */
+  --metal-gold: hsl(51, 100%, 50%);
+  --gem-amethyst: hsl(270, 50%, 60%);
+  --gem-emerald: hsl(164, 70%, 40%);
+  --metal-bronze: hsl(30, 60%, 50%);
+  --crystal-silver: hsl(220, 15%, 90%);
+  
+  /* ------- Efeitos Visuais ------- */
+  --border-radius-mural: 12px;
+  --transition-mural: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --glow-gradient-mural: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.15), transparent 70%);
+  --text-stroke-mural: 1px rgba(0,0,0,0.3);
+  --text-shadow-mural: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  /* ------- Aliases para Consistência ------- */
+  --border-radius: var(--border-radius-mural);
+  --glow-gradient: var(--glow-gradient-mural);
+  --z-glow: var(--z-glow-mural, 1);
+  --z-content: var(--z-content-mural, 2);
+  --z-ribbon: var(--z-ribbon-mural, 3);
+  --text-stroke: var(--text-stroke-mural);
+  --text-shadow: var(--text-shadow-mural);
+  
+  /* ------- Mural Principal ------- */
+  --mural-bg: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.05"><path fill="%232a2015" d="M50 0l12 25 25 12-25 12-12 25-12-25-25-12 25-12z"/></svg>');
+  --mural-border: 3px double var(--badge-color-003);
+  
+  /* ------- Mural Fantasma ------- */
+  --phantom-overlay-color: rgba(255, 255, 255, 0.3);
+  --phantom-text: "Pré-visualização Fantasma";
+  --phantom-text-size: clamp(1.5rem, 3vw, 2rem);
+  --phantom-text-rotate: 15deg;
+  
+/* ==================================================
+   VARIÁVEIS GLOBAIS COM CLAMP
+   Define tamanhos fluídos para avatares, nomes e títulos
+================================================== */
+  /* Tamanho do avatar: mínimo de 50px, cresce fluidamente e atinge 70px como máximo */
+  --avatar-size: clamp(50px, 5vw, 60px);
+  /* Tamanho da fonte do nome do card: mínimo de 0.6rem, fluido, até 0.9rem */
+  --card-name-font-size: clamp(0.6rem, 2vw, 0.9rem);
+  /* Tamanho da fonte do título do mural: mínimo 2rem, fluido, até 2.5rem */
+  --mural-title-font-size: clamp(2rem, 3vw, 2.5rem);
+  /* Tamanho da fonte do título dos tiers: mínimo 1.3rem, fluido, até 2rem */
+  --tier-title-font-size: clamp(1.3rem, 2vw, 2rem);
+
+  /* ------- TIER 5 (Ouro Celestial) ------- */
+  --tier-5-bg: linear-gradient(135deg, hsl(51, 100%, 60%) 0%, hsl(45, 100%, 45%) 30%, hsl(40, 100%, 35%) 100%);
+  --tier-5-texture: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill="rgba(255,215,0,0.2)" d="M8 0L4 4 0 0h8zM16 0l-4 4 4 4V0zM0 16l4-4-4-4v8zM16 16l-4-4 4-4v8z"/><path fill="rgba(255,255,255,0.1)" d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>');
+  --tier-5-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold"><path d="M5 16L3 5l5 5L12 2l4 8 5-5-2 11H5zm14 3H5v2h14v-2z"/></svg>');
+  --tier-5-border: 2px inset var(--metal-gold);
+  /* Cards Tier 5 */
+  --mural-tier5-bg: var(--tier-5-texture), var(--tier-5-bg);
+  --mural-tier5-border: 2px inset hsl(51, 100%, 50%);
+  --mural-tier5-shadow: 0 0 12px hsl(45, 100%, 50%), 0 2px 8px rgba(0, 0, 0, 0.4);
+  
+  /* ------- TIER 4 (Prata Lunar) ------- */
+  --lunar-silver-1: hsl(220, 15%, 90%);
+  --lunar-silver-2: hsl(220, 25%, 85%);
+  --lunar-silver-3: hsl(220, 35%, 80%);
+  --lunar-border: hsl(221, 33%, 54%);
+  --tier-4-bg: linear-gradient(135deg, var(--lunar-silver-1), var(--lunar-silver-2), var(--lunar-silver-3));
+  --tier-4-border: 2px inset hsl(221, 33%, 54%);
+  --tier-4-texture: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" opacity="0.3"><circle cx="15" cy="20" r="5" fill="%23777"/><circle cx="45" cy="30" r="4" fill="%23777"/><circle cx="50" cy="55" r="5" fill="%23777"/><circle cx="10" cy="35" r="4.5" fill="%23777"/></svg>');
+  --tier-4-icon: url('data:image/svg+xml,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20viewBox%3D%220%200%207.5%207.5%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%222%22%3E%3Cpath%20fill%3D%22%23e4e2dc%22%20d%3D%22M7.281%203.75A3.53%203.53%200%200%201%203.75%207.281%203.53%203.53%200%200%201%20.219%203.75a3.531%203.531%200%200%201%207.062%200%22%2F%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20d%3D%22M7.281%203.75A3.53%203.53%200%200%201%203.75%207.281%203.53%203.53%200%200%201%20.219%203.75a3.531%203.531%200%200%201%207.062%200%22%2F%3E%3C%2FclipPath%3E%3Cg%20clip-path%3D%22url(%23a)%22%3E%3Cpath%20d%3D%22m6.492-1.736%202.24%201.487.938%202.52-.722%202.59-2.107%201.67-2.686.113-2.24-1.487-.938-2.52.722-2.589%202.107-1.67z%22%20fill%3D%22%23f6f4ef%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22m5.946%205.063-.153.094.256.219.068-.165zM4.384%202.589l-.249.153.418.357.11-.27zM2.518%204.482l-.17.105.285.244.075-.184zm.493-3.092.181-.114-.307-.258-.079.198zM5.38%205.56l.195-.122-.331-.278-.085.213z%22%20fill%3D%22%23e4e2dc%22%20fill-rule%3D%22nonzero%22%2F%3E%3Cpath%20d%3D%22m6.117%202.743.099.507-.452.25-.378-.352.218-.468zm-2.979-.73-.27.765-.8-.034-.225-.787.661-.452zm.288%202.696-.211-.973.86-.501.742.663-.401.911zm-2.113-.474-.148-.558.484-.3.447.372-.207.53zm2.609%202.548-.563-.496.306-.674.752.079.159.723z%22%20fill%3D%22%23e4e2dc%22%2F%3E%3C%2Fsvg%3E') center/contain no-repeat;
+ /* Cards Tier 4 */
+  --mural-tier4-bg: var(--tier-4-texture), var(--tier-4-bg);
+  --mural-tier4-border: 2px inset var(--lunar-border);
+  --mural-tier4-shadow: 0 0 10px var(--lunar-border), 0 2px 6px rgba(0, 0, 0, 0.3);
+  
+  /* ------- TIER 3 (Bronze Ancestral) ------- */
+  --bronze-1: hsl(30, 60%, 50%);
+  --bronze-2: hsl(25, 60%, 40%);
+  --bronze-border: hsl(25, 50%, 35%);
+  --tier-3-bg: linear-gradient(135deg, var(--bronze-1), var(--bronze-2));--mural-tier4-bg: var(--tier-4-texture), var(--tier-4-bg);
+  --tier-3-texture: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" opacity="0.1"><path d="M3 3h2v2H3zM8 8h2v2H8zM13 13h2v2h-2z" fill="%235a3e2e"/></svg>');
+  --tier-3-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="a" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="%23cd7f32"/><stop offset="100%" stop-color="%238b5d2e"/></linearGradient></defs><path fill="url(%23a)" d="M153.568 20.424L109.13 70.79l63.696 291.11-18.746 1.758L92.266 81.143 36.588 137.73 110.28 427.7l41.2-47.26 13.286 13.2-43.715 50.147L322.1 491.56l53.714-49.52-192.472-50.067 5.084-17.99 199.982 52.023 103.87-195.3-68.82-127.98-269.888-82.302zm81.912 51.892c80.62.774 168.87 79.368 155.422 164.98-28.148-67.998-92.725-132.962-165.6-115.685-63.013 14.94-5.186 80.4 65.82 97.693C369.54 238.4 459.874 302.575 400.1 365.79c-55.167 58.34-159.148 2.03-150.717-67.73 17.855 32.638 81.77 85.592 120.695 43.436 54.56-59.084-77.733-93.542-122.27-112.883-45.846-19.903-138.904-86.006-81.083-133.1 20.11-16.38 44.074-23.433 68.753-23.197zm21.893 61.647c7.13.043 15.174.844 23.918 2.453-25.35 11.378-30.295 31.156-25.52 54.936-48.725-35.784-36.897-57.624 1.603-57.39zm140.693 21.39c38.708 17.26 53.486 66.86 8.854 96.036 6.68-32.38 6.314-64.494-8.854-96.038zM246.77 246.485c5.027.003 10.616 1.487 15.886 4.53 12.047 6.955 17.874 19.418 13.014 27.836-4.86 8.417-18.567 9.603-30.613 2.648-12.047-6.955-17.872-19.418-13.012-27.836 2.734-4.735 8.265-7.18 14.726-7.178z"/></svg>') center/contain no-repeat;
+ /* Cards Tier 3 */
+  --mural-tier3-bg: var(--tier-3-texture), var(--tier-3-bg);
+  --mural-tier3-border: 2px inset var(--bronze-border);
+  --mural-tier3-shadow: 0 3px 6px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(255,255,255,0.2);
+  
+  /* ------- TIER 2 (Esmeralda Élfica) ------- */
+  --emerald-1: hsl(164, 70%, 40%);
+  --emerald-2: hsl(158, 70%, 30%);
+  --emerald-border: hsl(152, 50%, 25%);
+  --tier-2-bg: linear-gradient(135deg, var(--emerald-1), var(--emerald-2));
+  --tier-2-texture: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" opacity="0.15"><path d="M3 7h14v3H3zM5 11h10v2H5z" fill="%23244d42"/></svg>');
+  --tier-2-texture-after: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" opacity="0.1"><path d="M1 1h1v1H1zM4 4h1v1H4zM7 7h1v1H7z"/></svg>');
+  --tier-2-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="a" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="%2328a745"/><stop offset="100%" stop-color="%231d7a34"/></linearGradient></defs><path fill="url(%23a)" d="M145.18 371.24H95.28c-35.21 0-63.75 28.54-63.75 63.75s28.54 63.75 63.75 63.75H266.31v-94z"/><path fill="%233ab45a" d="M356.85 140.76 154.64 13.27H90.44C29.66 13.27-9.34 77.89 18.99 131.67l138.47 262.88h-.02c25.4 47.06-8.68 104.18-62.15 104.18h336.42c53.48 0 87.55-57.12 62.15-104.18z"/><path fill="%2342d36f" d="M90.44 13.27c35.21 0 63.75 28.54 63.75 63.75s-28.54 63.75-63.75 63.75h266.41c35.21 0 63.75-28.54 63.75-63.75s-28.54-63.75-63.75-63.75z"/><path fill="%231d7a34" d="M342.96 489.15H147.4c1.76 0 6.04-5.74 7.17-6.99 17.75-19.62 25.17-48.13 18.44-73.98-2.74-10.52-8.09-19.99-13.12-29.54L27.46 127.21C15.73 104.95 16.49 78.79 29.49 57.25s35.79-34.4 60.95-34.4c29.87 0 54.17 24.3 54.17 54.17s-24.3 54.17-54.17 54.17a9.57 9.57 0 0 0-9.57 9.57 9.57 9.57 0 0 0 9.57 9.58h260.7l31.74 58.8c2.51 4.66 8.32 6.39 12.97 3.88 4.66-2.51 6.39-8.32 3.88-12.97l-27.7-51.3c33.16-7.02 58.13-36.51 58.13-71.73 0-40.43-32.89-73.32-73.32-73.32H240.78c-5.29 0-9.57 4.29-9.57 9.57s4.28 9.58 9.57 9.58h116.06c29.87 0 54.17 24.3 54.17 54.17 0 29.87-24.29 54.16-54.17 54.17H139.8q1.38-1.26 2.69-2.58c13.49-13.62 21.27-32.41 21.27-51.59 0-20.04-8.54-39.65-23.13-53.37-.28-.27-.54-.54-.83-.8h56.3c5.29 0 9.57-4.29 9.57-9.57s-4.28-9.58-9.57-9.58H90.44c-31.93 0-60.84 16.32-77.34 43.66-16.5 27.34-17.46 60.52-2.58 88.77L129.31 361.66H95.28c-40.43 0-73.32 32.89-73.32 73.32s32.89 73.32 73.32 73.32l.08-.001h247.61c5.29 0 9.57-4.29 9.57-9.57s-4.29-9.57-9.58-9.57M41.11 434.98c0-29.87 24.3-54.17 54.17-54.17h44.12c3.82 7.25 8.05 14.43 11.42 21.9 3.92 8.53 5.78 17.63 5.58 26.69-.7 32.87-28.39 59.74-61.14 59.74-29.86-.01-54.15-24.3-54.15-54.16m461.16-44.98-78.42-145.27c-2.51-4.66-8.32-6.39-12.97-3.88-4.66 2.51-6.39 8.32-3.88 12.97l78.42 145.27c10.31 19.1 9.83 41.64-1.29 60.28-11.12 18.65-30.72 29.78-52.43 29.78h-44.05c-5.29 0-9.57 4.29-9.57 9.57s4.28 9.58 9.57 9.58h44.05c28.52 0 54.27-14.62 68.88-39.11 14.61-24.49 15.24-54.1 1.7-79.19"/></svg>') center/contain no-repeat;
+ /* Cards Tier 2 */
+  --mural-tier2-bg: var(--tier-2-texture), var(--tier-2-bg);
+  --mural-tier2-border: 2px inset var(--emerald-border);
+  --mural-tier2-shadow: 0 3px 6px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(255,255,255,0.2);
+  
+  /* ------- TIER 1 (Ametista Mística) ------- */
+  --amethyst-1: hsl(270, 50%, 60%);
+  --amethyst-2: hsl(260, 50%, 45%);
+  --amethyst-border: hsl(255, 45%, 35%);
+  --tier-1-bg: linear-gradient(360deg, var(--amethyst-1), var(--amethyst-2));
+  --tier-1-texture: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" opacity="0.15"><circle cx="5" cy="5" r="1" fill="%237d5ba3"/><circle cx="15" cy="12" r="1.2" fill="%237d5ba3"/><circle cx="8" cy="15" r="0.8" fill="%237d5ba3"/></svg>');
+  --tier-1-texture-after: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" opacity="0.1"><circle cx="3" cy="7" r="0.5" fill="%23fff"/><circle cx="8" cy="2" r="0.3" fill="%23fff"/></svg>');
+  --tier-1-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54.15 54.15"><defs><linearGradient id="a" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="%239f7aea"/><stop offset="100%" stop-color="%23805ad5"/></linearGradient></defs><g stroke="%23805ad5" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><circle cx="25.075" cy="25.075" r="25.075" transform="translate(2 2)" fill="url(%23a)"/><path d="m6.675 47.476 13.914-26.885 26.884-13.917-13.914 26.885Z" fill="%23e6d7ff"/><path d="M30.443 27.075a3.368 3.368 0 1 1-3.368-3.367 3.37 3.37 0 0 1 3.368 3.367" fill="%23e6d7ff"/></g></svg>');
+  /* Cards Tier 1 */
+  --mural-tier1-bg: var(--tier-1-texture), var(--tier-1-bg);
+  --mural-tier1-border: 2px inset var(--amethyst-border);
+  --mural-tier1-shadow: 0 3px 6px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(255,255,255,0.2);
+  
+  /* ------- CARGOS DE CONTEÚDO ------- */
+  --badge-admin-bg: linear-gradient(135deg,var(--wp--preset--color--vivid-red), var(--wp--preset--color--vivid-purple), var(--load-comments-background-hover));
+  --tier-admin-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold"><path d="M5 16L3 5l5 5L12 2l4 8 5-5-2 11H5zm14 3H5v2h14v-2z"/></svg>');
+  --editor-bg: linear-gradient(135deg, #4a5568, #2d3748);
+  --moderator-bg: linear-gradient(135deg, #3182ce, #2b6cb0);
+  --revisor-bg: linear-gradient(135deg, #48bb78, #38a169);
+  --autor-bg: linear-gradient(135deg, #dd6b20, #c05621);
+  --tradutor-bg: linear-gradient(135deg, #9f7aea, #805ad5);
+  --novato-bg: hsl(200, 60%, 45%);
+  --author-bg: linear-gradient(0deg, #263672, #8459b4);
+  --contributor-bg: hsl(240, 15%, 45%);
+  --leitor-bg: hsl(210, 10%, 85%);
+  --subscriber-bg: hsl(0, 0%, 90%);
+  
+  /* ------- Texturas e Padrões ------- */
+  --texture-gold: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" opacity="0.1"><path fill="%23ffd700" d="M8 0L4 4 0 0h8zM16 0l-4 4 4 4V0zM0 16l4-4-4-4v8zM16 16l-4-4 4-4v8z"/></svg>');
+  --texture-cracks: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path d="M12 18c2-3 8-4 11-1 2 3-1 7-4 8-4 2-8 1-11-3-1-2-1-4 0-6zm34 58c-3-2-5-6-3-9 2-4 7-5 11-3 3 1 5 5 4 8-2 4-7 6-11 5-3-1-5-4-4-8zm-20-35c-1 3-4 5-7 4-4-1-6-5-5-8 2-4 6-6 10-5 3 1 5 5 3 8-1 2-3 3-5 3zm40-15c2 4-1 8-5 9-3 2-7 0-9-3-2-4 0-8 4-9 3-1 7 1 9 4zm-5 45c3-2 6 0 8 3 1 3-1 6-4 7-4 1-7-2-8-5-1-3 1-6 4-7zm-25 5c4-1 7 2 8 5 1 4-2 7-6 8-3 1-7-1-8-4-1-4 2-7 6-9z" fill="rgba(0,0,0,0.8)" stroke="rgba(0,0,0,0.2)" stroke-width="0.5" stroke-linecap="round"/><path d="M30 15c-2 1-3 3-2 5 1 3 4 4 7 3 2-1 3-4 2-6-1-3-4-4-7-3zm45 70c1-2 4-3 6-1 2 1 2 4 1 6-2 2-5 2-7 0-1-2-1-5 0-7zM55 20c-1-3-4-5-7-4-3 1-5 4-4 7 1 3 4 5 7 4 3-1 5-4 4-7z" fill="rgba(0,0,0,0.6)"/><filter id="crack-noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/></filter></svg>');
+
+}
+
+/* ==============================
+   1) ESTILO BASE DE BADGE
+============================== */
+.fictioneer-comment__badge {
+  display: inline-flex;
+  font-family: var(--ff-medieval);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--ff-badge-size);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 0 6px;
+  margin-left: 4px;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.fictioneer-comment__badge:hover {
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   2) ADMINISTRADOR
+============================== */
+.fictioneer-comment__badge.is-admin {
+  background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red);
+  color: var(--badge-color-001);
+}
+
+
+
+/* ==============================
+   3) TIERS DO PATREON
+============================== */
+/* Propriedades comuns aos tiers: define layout, espaçamento e alinhamento para todos os badges */
+.fictioneer-comment__badge.is-fcn_ilustre_patrono_de_illusia,
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos,
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas,
+.fictioneer-comment__badge.is-fcn_cronista_illusrio,
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia {
+  display: inline-flex; /* Garante exibição em linha com comportamento flex */
+  align-items: center;  /* Alinha verticalmente os itens no centro */
+  min-width: 110px;     /* Largura mínima para o badge */
+  padding-left: 15px;   /* Espaço interno à esquerda */
+  margin-left: 10px;    /* Espaçamento à esquerda em relação a elementos adjacentes */
+  position: relative;   /* Permite o uso de pseudo-elementos posicionados em relação ao badge */
+  letter-spacing: 1px;  /* Espaçamento entre letras */
+}
+
+/* ==== TIER 5 - ILUSTRE PATRONO - OURO BRILHANTE ==== */
+/* Badge do Tier 5 com fundo texturizado e gradiente, borda e sombra animadas para efeito de brilho */
+.fictioneer-comment__badge.is-fcn_ilustre_patrono_de_illusia {
+  background: var(--tier-5-texture), var(--tier-5-bg); /* Fundo com textura e cor definida em variáveis */
+  border: 2px inset hsl(51, 100%, 50%); /* Borda interna com cor dourada */
+  box-shadow: 0 0 12px hsl(45, 100%, 50%), 0 2px 8px rgba(0, 0, 0, 0.4); /* Sombra externa para realce */
+  color: var(--badge-color-002); /* Cor do texto definida em variável */
+  overflow: visible; /* Permite que os pseudo-elementos ultrapassem os limites */
+  animation: tier5-glow 4s infinite; /* Animação de brilho contínuo */
+}
+
+/* Pseudo-elemento ::before: exibe o ícone do Tier 5, posicionado à esquerda, com efeito de flutuação */
+.fictioneer-comment__badge.is-fcn_ilustre_patrono_de_illusia::before {
+  content: var(--tier-5-icon); /* Conteúdo do ícone definido via variável */
+  position: absolute;
+  left: -12px; /* Posiciona à esquerda do badge */
+  top: -8px;   /* Posiciona acima do badge */
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Adiciona sombra ao ícone */
+  animation: crown-float 3s ease-in-out infinite; /* Animação de flutuação do ícone */
+}
+
+/* Pseudo-elemento ::after: cria um efeito de brilho dourado em volta do badge */
+.fictioneer-comment__badge.is-fcn_ilustre_patrono_de_illusia::after {
+  content: "";
+  position: absolute;
+  inset: -4px; /* Expande além dos limites do badge */
+  background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.4) 0%, transparent 60%);
+  animation: golden-sparkle 2s infinite; /* Animação de brilho que pulsa */
+  pointer-events: none; /* Não interfere com interações do usuário */
+  z-index: -1; /* Fica atrás do conteúdo do badge */
+}
+
+/* Animação para o brilho do Tier 5 */
+@keyframes tier5-glow {
+  0%, 100% { 
+    box-shadow: 0 0 12px hsl(45, 100%, 50%), 0 2px 8px rgba(0, 0, 0, 0.4); 
+  }
+  50% { 
+    box-shadow: 0 0 20px hsl(45, 100%, 60%), 0 4px 12px rgba(0, 0, 0, 0.6); 
+  }
+}
+
+/* Animação de flutuação para o ícone (coroa) do Tier 5 */
+@keyframes crown-float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-4px) rotate(5deg); }
+}
+
+/* Animação de pulsação para o efeito de brilho dourado */
+@keyframes golden-sparkle {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+/* ==== TIER 4 - MESTRE DOS CONTOS - PRATA LUNAR ==== */
+/* Badge do Tier 4 com fundo texturizado e gradiente, efeitos de blend e borda arredondada */
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos {
+  background: var(--tier-4-texture), var(--tier-4-bg); /* Fundo composto por textura e cor */
+  background-size: 20px 10px, auto; /* Define o tamanho da textura */
+  background-blend-mode: multiply; /* Combina as camadas de fundo multiplicando as cores */
+  color: var(--lunar-border); /* Cor do texto definida em variável */
+  border: 2px inset var(--lunar-border); /* Borda interna com cor lunar */
+  border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Pseudo-elemento ::before: exibe o ícone do Tier 4, com animações de flutuação e brilho */
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 20%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--tier-4-icon); /* Ícone definido via variável */
+  animation: lunar-float 6s ease-in-out infinite, lunar-glow 4s alternate infinite; /* Duas animações simultâneas */
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2)) contrast(1.1);
+}
+
+/* Pseudo-elemento ::after: cria uma aura radial por trás do badge */
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  transform: translateY(-50%);
+  opacity: 0.3;
+  z-index: -1;
+  animation: lunar-aura 5s infinite; /* Animação que faz a aura pulsar */
+}
+
+/* Estilo para o texto interno do badge do Tier 4 */
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos > span {
+  display: inline-block;
+  transform: translateY(1px); /* Ajuste fino na posição vertical */
+  padding-left: 6px; /* Espaço interno à esquerda */
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15), 0 -1px 1px rgba(255, 255, 255, 0.4); /* Sombra no texto para realce */
+  color: hsl(220, 40%, 30%); /* Cor do texto */
+  font-weight: 700;
+}
+
+/* Animação de flutuação para o ícone do Tier 4 */
+@keyframes lunar-float {
+  0%, 100% { transform: translateY(-50%) rotate(-8deg) scale(0.97); }
+  33% { transform: translateY(-51%) rotate(0deg) scale(1.02); }
+  66% { transform: translateY(-49%) rotate(8deg) scale(0.99); }
+}
+
+/* Animação para ajustar o brilho do ícone do Tier 4 */
+@keyframes lunar-glow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1) drop-shadow(2px 2px 3px gray); }
+}
+
+/* Animação da aura do Tier 4 */
+@keyframes lunar-aura {
+  0%, 100% { transform: translateY(-50%) scale(0.95); }
+  50% { transform: translateY(-50%) scale(1.1); }
+}
+
+/* Efeito de hover para o badge do Tier 4: eleva e aplica nova sombra */
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), inset 0 -3px 6px rgba(255, 255, 255, 0.6);
+}
+
+/* Reduz a duração das animações do ícone no hover para efeito mais rápido */
+.fictioneer-comment__badge.is-fcn_mestre_dos_contos:hover::before {
+  animation-duration: 4s, 4s;
+}
+
+/* ==== TIER 3 - GUARDIÃO DAS CRÔNICAS - BRONZE RÚNICO ==== */
+/* Badge do Tier 3 com fundo texturizado e cor bronze, borda e sombras que simulam efeito de relevo */
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas {
+  background: var(--tier-3-texture), var(--tier-3-bg); /* Fundo com textura e cor */
+  background-size: 30px 30px; /* Tamanho da textura */
+  border: 2px inset var(--bronze-border); /* Borda interna com cor bronze */
+  border-radius: 6px; /* Bordas levemente arredondadas */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2); /* Sombra externa e interna */
+  color: var(--badge-color-003); /* Cor do texto */
+  transition: all 0.3s ease; /* Transição suave para alterações */
+}
+
+/* Pseudo-elemento ::before: exibe o ícone do Tier 3, posicionado à esquerda, com sombra para destaque */
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--tier-3-icon); /* Ícone definido via variável */
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9)) brightness(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Ajuste de padding para o texto interno do badge do Tier 3 */
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas > span {
+  padding-left: 8px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3), 0 -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Pseudo-elemento ::after: cria um overlay com gradiente diagonal para efeito de destaque */
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Efeito de hover para o badge do Tier 3: leve elevação e ajuste na sombra */
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2), inset 0 -3px 6px rgba(255, 255, 255, 0.3);
+}
+
+/* No hover, altera a transformação do ícone para criar efeito de destaque */
+.fictioneer-comment__badge.is-fcn_guardio_das_crnicas:hover::before {
+  transform: translateY(-50%) rotate(15deg) scale(1.1);
+}
+
+/* ==== TIER 2 - CRONISTA ILLUSÓRIO - ESMERALDA ESCOLÁSTICA ==== */
+/* Badge do Tier 2 com fundo texturizado e cor esmeralda, borda e sombras sutis */
+.fictioneer-comment__badge.is-fcn_cronista_illusrio {
+  background: var(--tier-2-texture), var(--tier-2-bg);
+  background-size: 40px 40px;
+  border: 2px solid var(--emerald-border);
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2);
+  color: var(--badge-color-004);
+  transition: all 0.3s ease;
+}
+
+/* Pseudo-elemento ::before: exibe o ícone do Tier 2, com posicionamento e sombra para destaque */
+.fictioneer-comment__badge.is-fcn_cronista_illusrio::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--tier-2-icon);
+  filter: drop-shadow(0 1px 2px rgba(0, 40, 20, 0.4)) brightness(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Ajuste do padding e estilo para o texto interno do badge do Tier 2 */
+.fictioneer-comment__badge.is-fcn_cronista_illusrio > span {
+  padding-left: 8px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  text-shadow: 0 2px 3px rgba(0, 40, 20, 0.5), 0 -1px 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Pseudo-elemento ::after: overlay com gradiente e textura adicional para realce */
+.fictioneer-comment__badge.is-fcn_cronista_illusrio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%),
+              var(--tier-2-texture-after);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Efeito de hover para o badge do Tier 2: elevação e nova sombra para destaque */
+.fictioneer-comment__badge.is-fcn_cronista_illusrio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 40, 20, 0.3), inset 0 -3px 6px rgba(255, 255, 255, 0.4);
+}
+
+/* No hover, anima o ícone do Tier 2 para efeito de abertura */
+.fictioneer-comment__badge.is-fcn_cronista_illusrio:hover::before {
+  animation: scroll-open 0.8s ease;
+}
+
+/* Animação para o ícone do Tier 2 ao ser ativado no hover */
+@keyframes scroll-open {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.1) rotate(-5deg); }
+}
+
+
+/* ==== TIER 1 - EXPLORADOR DE ILLUSIA - AMETISTA ESTELAR ==== */
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia {
+  background: var(--tier-1-texture), var(--tier-1-bg);
+  background-size: 40px 40px;
+  border: 2px solid  var(--amethyst-border);
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2);
+  color: var(--badge-color-005);
+  transition: all 0.3s ease;
+}
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--tier-1-icon);
+  filter: drop-shadow(0 1px 3px rgba(128, 90, 213, 0.4)) brightness(1.05);
+}
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia > span {
+  padding-left: 8px;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(159, 122, 234, 0.4), 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
+              var(--tier-1-texture-after);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia:hover {
+  transform: translateY(-2px);
+}
+.fictioneer-comment__badge.is-fcn_explorador_de_illusia:hover::before {
+  animation-duration: 4s;
+  filter: brightness(1.2);
+}
+
+/* ==== TIER 0 - ILLUSIANO - Gratuito ==== */
+.fictioneer-comment__badge.is-fcn_illusiano {background: var(--leitor-bg); color: var(--badge-color-002);}
+
+/* ==============================
+   4) CARGOS DE CONTEÚDO
+============================== */
+/* Agrupando apenas a propriedade "color" em comum */
+.fictioneer-comment__badge.is-editor,
+.fictioneer-comment__badge.is-fcn_moderator,
+.fictioneer-comment__badge.is-fcn_revisor,
+.fictioneer-comment__badge.is-fcn_autor,
+.fictioneer-comment__badge.is-fcn_tradutor,
+.fictioneer-comment__badge.is-fcn_novato,
+.fictioneer-comment__badge.is-author,
+.fictioneer-comment__badge.is-contributor {
+  color: var(--badge-color-001);
+}
+.fictioneer-comment__badge.is-fcn_leitor,
+.fictioneer-comment__badge.is-subscriber,
+.fictioneer-comment__badge.is-translator {
+  color: var(--badge-color-002);
+}
+
+/* Definindo os backgrounds individuais */
+.fictioneer-comment__badge.is-editor { background: var(--editor-bg); }
+.fictioneer-comment__badge.is-fcn_moderator { background: var(--moderator-bg); }
+.fictioneer-comment__badge.is-fcn_revisor { background: var(--revisor-bg); }
+.fictioneer-comment__badge.is-fcn_autor { background: var(--autor-bg); }
+.fictioneer-comment__badge.is-fcn_tradutor { background: var(--tradutor-bg); }
+.fictioneer-comment__badge.is-fcn_novato { background: var(--novato-bg); }
+.fictioneer-comment__badge.is-author { background: var(--author-bg); }
+.fictioneer-comment__badge.is-contributor { background: var(--contributor-bg); }
+.fictioneer-comment__badge.is-fcn_leitor { background: var(--leitor-bg); }
+.fictioneer-comment__badge.is-subscriber { background: var(--subscriber-bg); }
+.fictioneer-comment__badge.is-translator { background: var(--subscriber-bg); }
+
+/* ==================================================
+   ESTILOS DOS MURAIS
+================================================== */
+.fictioneer-mural {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--texture-cracks), linear-gradient(15deg, #2a20154d 0%, #3a2a1a57 100%);
+  border: var(--mural-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 5px auto;
+}
+
+/* ==================================================
+   CARDS INTERATIVOS
+================================================== */
+.fictioneer-card {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  padding: 1.5rem 0.8rem;
+  border-radius: calc(var(--border-radius-mural) - 4px);
+  transition: var(--transition-mural);
+  border-style: dashed !important;
+  /* overflow: hidden; */
+  min-height: 120px;
+  backdrop-filter: blur(6px);
+  background-blend-mode: overlay;
+}
+
+/* Efeito de hover: eleva e escala o card para dar sensação de profundidade */
+.fictioneer-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Efeito de Profundidade: pseudo-elemento para brilho interno */
+.fictioneer-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
+/* Conteúdo do Card: disposição vertical e espaçamento fluido */
+.fictioneer-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: auto;
+  width: 100%;
+}
+
+/* ==================================================
+   ESTILOS POR TIER - CARDS
+================================================== */
+
+/* Tier 5 - Ouro Celestial */
+/* Fundo com imagem SVG semitransparente e gradiente, borda e sombra específicas */
+.fictioneer-card.fcn_ilustre_patrono_de_illusia {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M50 0l12 25 25 12-25 12-12 25-12-25-25-12 25-12z" fill="%23ffd700"/></svg>'),
+              linear-gradient(135deg, hsl(51, 100%, 60%) 0%, hsl(45, 100%, 45%) 30%, hsl(40, 100%, 35%) 100%);
+  border: var(--mural-tier5-border);
+  box-shadow: var(--mural-tier5-shadow);
+  position: relative; /* Permite posicionar pseudo-elementos relativos ao card */
+}
+
+/* Efeito radial de brilho para o Tier 5 */
+.fictioneer-card.fcn_ilustre_patrono_de_illusia::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* Preenche todo o card */
+  background: radial-gradient(circle at 50% 20%, rgba(255,215,0,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+/* Estilo do avatar do Tier 5: borda, sombra e fundo semitransparente */
+.fictioneer-card.fcn_ilustre_patrono_de_illusia .fictioneer-card__avatar {
+  border-color: var(--badge-color-003);
+  box-shadow: 0 0 15px rgba(255,215,0,0.4);
+  background: hsla(31, 33%, 12%, 0.34);
+}
+
+/* Tier 4 - Prata Lunar */
+/* Fundo com gradiente linear e padrão repetitivo, borda e sombra específicas */
+.fictioneer-card.fcn_mestre_dos_contos {
+  background: repeating-linear-gradient(-45deg, transparent 0px 2px, rgba(255,255,255,0.1) 2px 4px),
+              linear-gradient(135deg, hsl(220, 15%, 90%), hsl(220, 25%, 85%), hsl(220, 35%, 80%));
+  border: var(--mural-tier4-border);
+  box-shadow: var(--mural-tier4-shadow);
+}
+
+/* Estilo do avatar do Tier 4: borda, efeito de sombra e fundo semitransparente */
+.fictioneer-card.fcn_mestre_dos_contos .fictioneer-card__avatar {
+  border-color: var(--lunar-border);
+  filter: drop-shadow(0 0 8px rgba(178,186,219,0.4));
+  background: hsla(221, 33%, 54%, 0.51);
+}
+
+/* Adiciona ícone de lua no canto superior direito do card Tier 4 */
+.fictioneer-card.fcn_mestre_dos_contos::after {
+  content: '🌙';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  opacity: 0.5;
+}
+
+/* Tier 3 - Bronze Ancestral */
+/* Fundo com imagem SVG e gradiente linear que remete ao bronze, borda inset e sombra */
+.fictioneer-card.fcn_guardio_das_crnicas {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20 50Q40 15 80 50T20 50" fill="%235a3e2e"/></svg>'),
+              linear-gradient(135deg, hsl(30, 60%, 50%), hsl(25, 60%, 40%));
+  border: 2px inset var(--bronze-border);
+  box-shadow: var(--mural-tier3-shadow);
+}
+
+/* Avatar do Tier 3 com gradiente que remete ao bronze */
+.fictioneer-card.fcn_guardio_das_crnicas .fictioneer-card__avatar {
+  border-color: var(--bronze-border);
+  background: linear-gradient(45deg, #cd7f32, #8b5d2e);
+}
+
+/* Nome do card Tier 3 com cor e sombra para realçar o tom bronzeado */
+.fictioneer-card.fcn_guardio_das_crnicas .fictioneer-card__name {
+  color: #ffe4c4;
+  text-shadow: 1px 1px 2px rgba(139,69,19,0.5);
+}
+
+/* Tier 2 - Esmeralda Élfica */
+/* Fundo com gradiente radial repetitivo sobreposto a gradiente linear, borda e sombra específicas */
+.fictioneer-card.fcn_cronista_illusrio {
+  background: repeating-radial-gradient(circle at 30% 40%, transparent 0 5px, rgba(36,77,66,0.1) 5px 10px),
+              linear-gradient(135deg, hsl(164,70%,40%), hsl(158,70%,30%));
+  border: var(--mural-tier2-border);
+  box-shadow: var(--mural-tier2-shadow);
+}
+
+/* Avatar do Tier 2: borda, sombra e fundo semitransparente */
+.fictioneer-card.fcn_cronista_illusrio .fictioneer-card__avatar {
+  border-color: var(--emerald-border);
+  box-shadow: 0 0 12px rgba(40,167,69,0.3);
+  background: hsla(152, 50%, 25%, 0.43);
+}
+
+/* Adiciona ícone SVG no canto inferior direito do card Tier 2 */
+.fictioneer-card.fcn_cronista_illusrio::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2328a745" opacity="0.3"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>');
+  bottom: 5px;
+  right: 5px;
+}
+
+/* Tier 1 - Ametista Mística */
+/* Fundo com gradiente radial e imagem SVG semitransparente, borda e sombra específicas */
+.fictioneer-card.fcn_explorador_de_illusia {
+  background: radial-gradient(circle at 80% 20%, hsl(270,50%,70%), hsl(260,50%,45%)),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="30" cy="30" r="5" fill="%237d5ba3"/></svg>');
+  border: var(--mural-tier1-border);
+  box-shadow: var(--mural-tier1-shadow);
+}
+
+/* Avatar do Tier 1 com tons místicos de ametista */
+.fictioneer-card.fcn_explorador_de_illusia .fictioneer-card__avatar {
+  border-color: var(--amethyst-border);
+  background: hsla(255, 45%, 35%, 0.44);
+}
+
+/* ==================================================
+   EFEITOS COMUNS A TODOS OS TIERS (CARDS)
+================================================== */
+.fictioneer-card:hover {
+  transform: translateY(-8px) rotateZ(1deg);
+  z-index: 10;
+}
+
+/* Pseudo-elemento para overlay com gradiente em diagonal */
+.fictioneer-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 100%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ==================================================
+   ELEMENTOS VISUAIS
+================================================== */
+
+/* Avatar: usa variável clamp para tamanho fluido, borda, sombra e objeto ajustado */
+.fictioneer-card__avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  min-width: var(--avatar-size); /* Garante tamanho mínimo */
+  min-height: var(--avatar-size);
+  border-radius: 0;
+  border: 2px outset;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3)) grayscale(.1);
+  transition: transform 0.3s ease;
+  z-index: var(--z-content);
+  object-fit: cover;
+}
+
+/* Animação do avatar ao passar o mouse */
+.fictioneer-card:hover .fictioneer-card__avatar {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Nome do card: tamanho da fonte fluido com clamp, e truncamento com elipse */
+.fictioneer-card__name {
+  font-family: var(--ff-assis);
+  font-size: var(--card-name-font-size);
+  margin: auto;
+  color: var(--name-card-color, #f0e6d8);
+  text-shadow: var(--text-stroke), var(--text-shadow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Ajuste conforme necessário */
+}
+
+/* ==================================================
+   GRUPOS E TÍTULOS DOS TIERS
+================================================== */
+
+/* Título do mural: tamanho fluido com clamp, centralizado e com borda inferior */
+.fictioneer-mural-title {
+  font-size: var(--mural-title-font-size);
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+  color: var(--badge-color-005);
+  font-family: var(--ff-medieval);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  border-bottom: 2px solid var(--badge-color-005);
+}
+
+/* Grupo de tiers: container com padding, fundo semitransparente e filtro de desfoque */
+.fictioneer-tier-group {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* Título do tier: tamanho fluido com clamp, com sombra de texto e destaque lateral */
+.fictioneer-tier-title {
+  font-family: var(--ff-medieval);
+  font-size: var(--tier-title-font-size);
+  color: #e8d9c5;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin: 0 0 1.5rem;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid;
+  position: relative;
+}
+
+/* Container dos cards dentro dos tiers: grid responsivo */
+.fictioneer-tier-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    min-width: 200px;
+    gap: 1.2rem;
+}
+
+/* ==================================================
+   COMPONENTES ADICIONAIS DOS CARDS
+================================================== */
+
+/* Ribbon: etiqueta posicionada no canto superior direito com fundo e sombra */
+.fictioneer-card__ribbon {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--ribbon-bg, linear-gradient(45deg, #85731729 0%, #57555f 30%, #3b3a3d 100%));
+  color: var(--ribbon-color, var(--badge-color-001));
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-family: Assistant;
+  font-style: italic;
+  font-size: 0.8em;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: var(--z-ribbon);
+}
+
+/* Variáveis específicas de cada tier definidas diretamente no card */
+.fictioneer-card.fcn_ilustre_patrono_de_illusia {
+  --ribbon-bg: var(--tier-5-bg);
+  --ribbon-color: var(--badge-color-002);
+  --name-card-color: var(--badge-color-002);
+  --meta-card-color: var(--badge-color-002);
+  --pledge-card-color: var(--badge-color-002);
+  --since-card-color: var(--badge-color-002);
+}
+
+.fictioneer-card.fcn_mestre_dos_contos {
+  --ribbon-bg: var(--tier-4-bg);
+  --ribbon-color: var(--lunar-border);
+  --name-card-color: var(--lunar-border);
+  --meta-card-color: var(--lunar-border);
+  --pledge-card-color: var(--lunar-border);
+  --since-card-color: var(--lunar-border);
+}
+
+.fictioneer-card.fcn_guardio_das_crnicas {
+  --ribbon-bg: var(--tier-3-bg);
+  --ribbon-color: var(--badge-color-003);
+  --name-card-color: var(--badge-color-003);
+  --meta-card-color: var(--badge-color-003);
+  --pledge-card-color: var(--badge-color-003);
+  --since-card-color: var(--badge-color-003);
+}
+
+.fictioneer-card.fcn_cronista_illusrio {
+  --ribbon-bg: var(--tier-2-bg);
+  --ribbon-color: var(--badge-color-004);
+  --name-card-color: var(--badge-color-004);
+  --meta-card-color: var(--badge-color-004);
+  --pledge-card-color: var(--badge-color-004);
+  --since-card-color: var(--badge-color-004);
+}
+
+.fictioneer-card.fcn_explorador_de_illusia {
+  --ribbon-bg: var(--tier-1-bg);
+  --ribbon-color: var(--badge-color-005);
+  --name-card-color: var(--badge-color-005);
+  --meta-card-color: var(--badge-color-005);
+  --pledge-card-color: var(--badge-color-005);
+  --since-card-color: var(--badge-color-005);
+}
+
+/* Pledge: texto complementar com tamanho e opacidade ajustados */
+.fictioneer-card__pledge {
+  font-family: var(--ff-assis);
+  color: var(--pledge-card-color, #e8d9c5);
+  font-size: 0.6em;
+  opacity: 0.9;
+  align-self: end;
+}
+
+/* Link do card: garante alinhamento central e sem decoração */
+.fictioneer-card__link {
+  display: flex;
+  width: 100%;
+}
+
+/* ==================================================
+   DETALHES ADICIONAIS DOS CARDS
+================================================== */
+
+/* Data/since: informações com fonte menor e estilo itálico */
+.fictioneer-card__since {
+  margin: auto;
+  font-size: 0.7em;
+  font-style: italic;
+  color: var(--since-card-color, rgba(255, 255, 255, 0.7));
+  margin-top: -1em;
+}
+
+/* Contagem de tiers: fonte pequena e opacidade reduzida */
+.fictioneer-tier-count {
+  font-size: 0.7em;
+  margin-left: 1rem;
+  opacity: 0.8;
+}
+
+/* Meta: container para informações adicionais com espaçamento */
+.fictioneer-card__meta {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--meta-card-color, #fff);
+  font-size: 0.8rem;
+}
+
+/* ==================================================
+   ANIMAÇÕES AVANÇADAS
+================================================== */
+@keyframes card-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes phantom-glow {
+  from { filter: brightness(0.8); }
+  to { filter: brightness(1.2); }
+}
+
+/* ==================================================
+   RESPONSIVIDADE GERAL
+================================================== */
+
+/* Hover para dispositivos com capacidade de hover */
+@media (hover: hover) {
+  .fictioneer-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .fictioneer-card:hover .fictioneer-card__avatar {
+    transform: rotate(10deg) scale(1.1);
+  }
+}
+
+/* Breakpoint: 1200px - Ajusta mural, gap e grid */
+@media (max-width: 1200px) {
+  .fictioneer-mural {
+    max-width: 1000px;
+    padding: 1.5rem;
+  }
+  
+  .fictioneer-tier-cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .fictioneer-card {
+    min-height: 110px;
+  }
+}
+
+/* Breakpoint: 992px - Ajusta mural, grupos e avatar */
+@media (max-width: 992px) {
+  .fictioneer-mural {
+    max-width: 800px;
+    gap: 1.5rem;
+  }
+  
+  .fictioneer-tier-group {
+    padding: 1.5rem;
+  }
+  
+  .fictioneer-tier-title {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+  }
+	
+}
+
+/* Breakpoint: 768px (Tablet) - Ajusta mural, grid, grupos e textos */
+@media (max-width: 768px) {
+  .fictioneer-mural {
+    max-width: 95%;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: calc(var(--border-radius) - 4px);
+  }
+  
+  .fictioneer-tier-cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .fictioneer-tier-group {
+    padding: 1rem;
+  }
+  
+  .fictioneer-tier-title {
+    font-size: clamp(1.3rem, 2vw, 1.4rem);
+    margin-bottom: 1rem;
+  }
+  
+  .fictioneer-card {
+    padding: 1rem;
+    min-height: 100px;
+  }
+  
+  .fictioneer-card__name {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+  }
+  
+  .fictioneer-card__pledge {
+    font-size: 0.75em;
+  }
+}
+
+/* Breakpoint: 576px (Mobile Grande) - Ajusta mural, grid, cards e avatares */
+@media (max-width: 576px) {
+  .fictioneer-mural {
+    max-width: 100%;
+    margin: 2px auto;
+    border-radius: calc(var(--border-radius) - 6px);
+  }
+  
+  .fictioneer-tier-cards {
+    grid-template-columns: 1fr;
+    min-width: unset;
+  }
+  
+  .fictioneer-card {
+    flex-direction: row;
+    text-align: center;
+    padding: 1.25rem 0.75rem;
+  }
+  
+  
+  .fictioneer-card__name {
+    font-size: clamp(1rem, 2vw, 1rem);
+    margin-bottom: 0.25rem;
+  }
+  
+  .fictioneer-card__ribbon {
+    font-size: 0.7em;
+    padding: 3px 6px;
+  }
+  
+  .fictioneer-card__since {
+    font-size: 0.55em;
+  }
+}
+
+/* Breakpoint: 400px (Mobile Pequeno) - Ajusta padding, cards e textos */
+@media (max-width: 400px) {
+  .fictioneer-mural {
+    padding: 0.75rem;
+  }
+  
+  .fictioneer-tier-group {
+    padding: 0.75rem;
+  }
+  
+  .fictioneer-card {
+    min-height: 90px;
+    padding: 1rem 0.5rem;
+  }
+  
+  
+  .fictioneer-card__name {
+    font-size: 0.9rem;
+  }
+  
+  .fictioneer-card__meta {
+    gap: 0.2rem;
+  }
+}
+
+/* Ajustes para orientação paisagem em tablets */
+@media (max-width: 768px) and (orientation: landscape) {
+  .fictioneer-tier-cards {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .fictioneer-card {
+    min-height: 80px;
+    padding: 0.75rem;
+  }
+  
+  .fictioneer-card__avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ==================================================
+   MELHORIAS PARA DISPOSITIVOS COM PONTEIRO GROSSO
+================================================== */
+@media (pointer: coarse) {
+  .fictioneer-card {
+    transition-duration: 0.15s;
+  }
+  
+  .fictioneer-card:active {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ==================================================
+   AJUSTES TIPOGRÁFICOS PARA DISPOSITIVOS PEQUENOS
+================================================== */
+@media (max-width: 576px) {
+  .fictioneer-tier-title {
+    font-size: clamp(1.3rem, 2vw, 1.3rem);
+    padding: 0.25rem 0.75rem;
+  }
+  
+  .fictioneer-card__name {
+    letter-spacing: 0.05em;
+  }
+  
+  .fictioneer-card__pledge {
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ==================================================
+   OTIMIZAÇÃO PARA TELAS DE ALTA DENSIDADE
+================================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .fictioneer-card {
+    border-width: 0.5px;
+  }
+  
+  .fictioneer-mural::before {
+    background-size: cover;
+  }
+}
+
+/* ==================================================
+   ACESSIBILIDADE
+================================================== */
+.fictioneer-card:focus-within {
+  outline: 2px solid var(--metal-gold);
+  outline-offset: 3px;
+}
+
+.fictioneer-card__link:focus {
+  outline: none;
+}
+
+/* ==================================================
+   COMENTÁRIOS COM DESTAQUE ESPECIAL
+================================================== */
+.fictioneer-comment__container {
+    background: var(--comment-background);
+    line-height: 1.6;
+    border: 1px solid var(--comment-border, rgba(0, 0, 0, 0)); /* Usa a variável --comment-border, com fallback transparente */
+    border-radius: var(--layout-border-radius-small);
+    background-origin: border-box !important;
+    padding: 0.75rem;
+}
+
+/* Tier 5 - Ilustre Patrono (Ouro Brilhante) */
+.fictioneer-comment__container.is-fcn_ilustre_patrono_de_illusia {
+    --comment-border: 2px solid hsl(51, 100%, 50%);
+}
+
+/* Tier 4 - Mestre dos Contos (Prata Lunar) */
+.fictioneer-comment__container.is-fcn_mestre_dos_contos {
+    --comment-border: 2px solid var(--lunar-border);
+}
+
+/* Tier 3 - Guardião das Crônicas (Bronze Rúnico) */
+.fictioneer-comment__container.is-fcn_guardio_das_crnicas {
+    --comment-border: 2px solid var(--bronze-border);
+}
+
+/* Tier 2 - Cronista Illusório (Esmeralda Escolástica) */
+.fictioneer-comment__container.is-fcn_cronista_illusrio {
+    --comment-border: 2px solid var(--emerald-border);
+}

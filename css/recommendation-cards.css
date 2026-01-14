@@ -1,0 +1,112 @@
+/* Caixa que envolve a vitrine de recomendações */
+.recommendation-box {
+    background-color: var(--blockquote-background);
+    padding: clamp(1.5rem, 5vw, 2rem);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+/* Título da vitrine */
+.recommendation-box-title {
+    font-size: clamp(1.5rem, 3vw, 1.5rem);
+    margin-bottom: 1rem;
+    color: var(--primary-400);
+    text-align: left;
+    border-bottom: 2px solid var(--primary-500);
+    padding-bottom: 0.5rem;
+}
+
+/* Container responsivo que exibe 5 colunas em desktops */
+.recommended-stories-grid {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 1rem 0;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/* Card moderno com largura máxima de 200px */
+.recommendation-card {
+    background: var(--bg-600);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 200px;
+    width: 100%;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Link do card */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Capa (thumbnail) com aspect ratio de 3:4 e totalmente visível */
+.recommendation-thumbnail {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    height: auto;
+}
+
+/* Conteúdo do card */
+.card-content {
+    padding: 0.01rem 0.75rem 0.01rem;
+}
+
+/* Título do card com tamanho reduzido, altura fixa e limitado a 2 linhas */
+.card-title {
+    font-size: clamp(.4rem, 2vw, .7rem) !important;
+    margin: 0 0 0.4rem;
+    color: var(--primary-400);
+    height: 2.4em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Meta informações */
+.card-meta {
+    display: flex;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.4rem, 1.5vw, 0.7rem);
+    color: var(--fg-700);
+}
+
+.meta-item {
+    display: flex;
+    font-size: 0.8em;
+    align-items: baseline;
+}
+
+.meta-item i {
+    margin-right: 0.25rem;
+    color: var(--primary-500);
+}
+
+/* Responsividade */
+
+/* Tablets: até 1200px exibe 4 colunas */
+@media (max-width: 1200px) {
+    .recommended-stories-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Celulares: até 768px exibe 3 colunas */
+@media (max-width: 768px) {
+    .recommended-stories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .recommendation-card {
+        max-width: 100%;
+    }
+}
